@@ -1,0 +1,24 @@
+{
+  "source": "./src",
+  "excludes": ["\\.test\\.js$"],
+  "destination": "./doc",
+  "lint": false,
+  "test": {
+    "type": "mocha",
+    "source": "./src",
+    "includes": ["\\.test\\.js$"]
+  },
+  "plugins": [
+    {
+      "name": "esdoc-importpath-plugin",
+      "option": {
+        "replaces": [
+          {
+            "from": "^src/.*\\.js$",
+            "to": "lib/meaw.cjs.js"
+          }
+        ]
+      }
+    }
+  ]
+}

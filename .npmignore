@@ -1,0 +1,15 @@
+# temporary
+/temp/
+
+# config
+.gitignore
+.eslintrc.json
+.esdoc.json
+
+# source
+/src/
+
+# auto-generated files
+/.nyc_output/
+/coverage/
+/doc/

@@ -1,0 +1,12 @@
+# temporary
+/temp/
+
+# Node.js / npm
+node_modules/
+npm-debug.log*
+
+# auto-generated files
+/lib/
+/.nyc_output/
+/coverage/
+/doc/

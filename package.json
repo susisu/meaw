@@ -1,0 +1,34 @@
+{
+  "name": "meaw",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/meaw.cjs.js",
+  "module": "lib/meaw.es.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susisu/meaw.git"
+  },
+  "author": "Susisu <susisu2413@yahoo.co.jp> (https://github.com/susisu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/susisu/meaw/issues"
+  },
+  "homepage": "https://github.com/susisu/meaw#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "chai": "^3.5.0",
+    "cross-env": "^4.0.0",
+    "esdoc": "^0.5.2",
+    "esdoc-importpath-plugin": "^0.1.1",
+    "eslint": "^3.19.0",
+    "mocha": "^3.2.0",
+    "npm-run-all": "^4.0.2",
+    "nyc": "^10.2.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.41.6"
+  }
+}
