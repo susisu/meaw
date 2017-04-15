@@ -5,7 +5,14 @@
   "main": "lib/meaw.cjs.js",
   "module": "lib/meaw.es.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate": "node scripts/generate_defs.js",
+    "lint": "eslint src --fix",
+    "test": "cross-env BABEL_ENV=test mocha --compilers js:babel-core/register src/*.test.js",
+    "cover": "nyc -r html -r text npm test",
+    "build": "rollup -c",
+    "doc": "esdoc",
+    "clean": "rimraf lib doc",
+    "prepublishOnly": "run-s generate lint cover clean build doc"
   },
   "repository": {
     "type": "git",
