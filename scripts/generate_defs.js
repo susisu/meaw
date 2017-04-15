@@ -6,6 +6,8 @@ const path = require("path");
 const SOURCE_PATH = path.resolve(__dirname, "./EastAsianWidth.txt");
 const TARGET_PATH = path.resolve(__dirname, "../src/defs.js");
 
+const ENCODING = "utf-8";
+
 const DEFAULT_PROP_VALUE = "N";
 const MIN_CODE_POINT     = 0x0000;
 const MAX_CODE_POINT     = 0x10FFFF;
@@ -60,7 +62,7 @@ function exportDefs(defs) {
 }
 
 async function generate() {
-  const src = (await readFile(SOURCE_PATH, { encoding: "utf-8" }))
+  const src = (await readFile(SOURCE_PATH, { encoding: ENCODING }))
     .split(/[\r\n]+/)                                      // split lines
     .map(line => line.replace(/^([^#]*).*$/, "$1").trim()) // strip comments
     .filter(line => line !== "")                           // remove empty lines
@@ -136,7 +138,7 @@ async function generate() {
     // push last def
     defs.push(prev);
   }
-  await writeFile(TARGET_PATH, exportDefs(defs), { encoding: "utf-8"});
+  await writeFile(TARGET_PATH, exportDefs(defs), { encoding: ENCODING });
 }
 
 generate().catch(err => {
