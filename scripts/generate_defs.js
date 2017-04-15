@@ -7,6 +7,7 @@ const SOURCE_PATH = path.resolve(__dirname, "./EastAsianWidth.txt");
 const TARGET_PATH = path.resolve(__dirname, "../src/defs.js");
 
 const DEFAULT_PROP_VALUE = "N";
+const MIN_CODE_POINT     = 0x0000;
 const MAX_CODE_POINT     = 0x10FFFF;
 
 const HEADER = `/*
@@ -69,8 +70,18 @@ async function generate() {
   let prev = null;
   for (const def of src) {
     if (!prev) {
-      prev = def;
-      continue;
+      // complete head
+      if (def.start !== MIN_CODE_POINT) {
+        prev = {
+          start: MIN_CODE_POINT,
+          end  : def.start - 1,
+          prop : DEFAULT_PROP_VALUE
+        };
+      }
+      else {
+        prev = def;
+        continue;
+      }
     }
     // complete
     if (prev.end + 1 !== def.start) {
