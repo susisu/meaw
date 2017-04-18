@@ -7,7 +7,7 @@ import { getEAW } from "./get-eaw.js";
 /**
  * @test {getEAW}
  */
-describe("getEAW(char, at)", () => {
+describe("getEAW(str, at)", () => {
   context("without at specified", () => {
     it("should return the EAW property of the first character", () => {
       // single characters
