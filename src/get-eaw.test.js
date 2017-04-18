@@ -5,6 +5,9 @@ import { expect } from "chai";
 import { getEAW } from "./get-eaw.js";
 
 describe("get-eaw", () => {
+  /**
+   * @test {getEAW}
+   */
   describe("getEAW(char)", () => {
     it("should find the EAW property of the character from the definitions", () => {
       // Neutral
