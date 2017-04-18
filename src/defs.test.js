@@ -2,7 +2,7 @@
 
 import { expect } from "chai";
 
-import Defs from "./defs.js";
+import defs from "./defs.js";
 
 describe("defs", () => {
   it("should be ordered and complete", () => {
@@ -10,7 +10,7 @@ describe("defs", () => {
     const maxCodePoint = 0x10FFFF;
     const propValues   = ["A", "F", "H", "N", "Na", "W"];
     let prev = null;
-    for (const def of Defs) {
+    for (const def of defs) {
       expect(def).to.have.property("start")
         .that.is.within(minCodePoint, maxCodePoint);
       expect(def).to.have.property("end")
@@ -23,7 +23,7 @@ describe("defs", () => {
       }
       prev = def;
     }
-    expect(Defs[0].start).to.equal(minCodePoint);
-    expect(Defs[Defs.length - 1].end).to.equal(maxCodePoint);
+    expect(defs[0].start).to.equal(minCodePoint);
+    expect(defs[defs.length - 1].end).to.equal(maxCodePoint);
   });
 });
