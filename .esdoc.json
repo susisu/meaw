@@ -1,4 +1,5 @@
 {
+  "title": "meaw",
   "source": "./src",
   "excludes": ["\\.test\\.js$"],
   "destination": "./doc",
