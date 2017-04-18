@@ -36,5 +36,9 @@ describe("get-eaw", () => {
       expect(getEAW("Ω")).to.equal("A");
       expect(getEAW("Я")).to.equal("A");
     });
+
+    it("should return undefined if the character is empty", () => {
+      expect(getEAW("")).to.equal(undefined);
+    });
   });
 });

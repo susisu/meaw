@@ -31,5 +31,8 @@ function _getEAWOfCodePoint(codePoint) {
  * @return {string} The EAW property of the specified character
  */
 export function getEAW(char) {
-  return _getEAWOfCodePoint(char.codePointAt(0));
+  const codePoint = char.codePointAt(0);
+  return codePoint === undefined
+    ? undefined
+    : _getEAWOfCodePoint(codePoint);
 }
