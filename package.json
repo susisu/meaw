@@ -5,7 +5,7 @@
   "main": "lib/meaw.cjs.js",
   "module": "lib/meaw.es.js",
   "scripts": {
-    "generate": "node scripts/generate_defs.js",
+    "generate": "node scripts/generate-defs.js",
     "lint": "eslint src --fix",
     "test": "cross-env BABEL_ENV=test mocha --compilers js:babel-core/register src/*.test.js",
     "cover": "nyc -r html -r text npm test",
