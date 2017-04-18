@@ -9,7 +9,7 @@ describe("get-eaw", () => {
    * @test {getEAW}
    */
   describe("getEAW(char)", () => {
-    it("should find the EAW property of the character from the definitions", () => {
+    it("should return the EAW property of the character", () => {
       // Neutral
       expect(getEAW("\x00")).to.equal("N");
       expect(getEAW("ℵ")).to.equal("N");
