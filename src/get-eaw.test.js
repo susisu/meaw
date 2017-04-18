@@ -7,7 +7,7 @@ import { getEAW } from "./get-eaw.js";
 describe("get-eaw", () => {
   describe("getEAW(char)", () => {
     it("should find the EAW property of the character from the definitions", () => {
-      // neutral
+      // Neutral
       expect(getEAW("\x00")).to.equal("N");
       expect(getEAW("ℵ")).to.equal("N");
       // Narrow
