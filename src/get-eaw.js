@@ -30,6 +30,29 @@ function _getEAWOfCodePoint(codePoint) {
  * @param {string} str A string in which the character is contained
  * @param {number} [at = 0] The position (in code unit) of the character in the string
  * @return {string} The EAW property of the specified character
+ * @example
+ * import { getEAW } from "meaw";
+ *
+ * // Narrow
+ * assert(getEAW("A") === "Na");
+ * // Wide
+ * assert(getEAW("あ") === "W");
+ * assert(getEAW("安") === "W");
+ * assert(getEAW("🍣") === "W");
+ * // Fullwidth
+ * assert(getEAW("Ａ") === "F");
+ * // Halfwidth
+ * assert(getEAW("ｱ") === "H");
+ * // Ambiguous
+ * assert(getEAW("∀") === "A");
+ * assert(getEAW("→") === "A");
+ * assert(getEAW("Ω") === "A");
+ * assert(getEAW("Я") === "A");
+ * // Neutral
+ * assert(getEAW("ℵ") === "N");
+ *
+ * // a position (in code unit) can be specified
+ * assert(getEAW("ℵAあＡｱ∀", 2) === "W");
  */
 export function getEAW(str, at) {
   const codePoint = str.codePointAt(at || 0);
