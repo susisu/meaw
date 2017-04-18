@@ -27,11 +27,12 @@ function _getEAWOfCodePoint(codePoint) {
 
 /**
  * Returns the EAW property of a character.
- * @param {string} char A character
+ * @param {string} str A string in which the character is contained
+ * @param {number} [at = 0] The position (in code unit) of the character in the string
  * @return {string} The EAW property of the specified character
  */
-export function getEAW(char) {
-  const codePoint = char.codePointAt(0);
+export function getEAW(str, at) {
+  const codePoint = str.codePointAt(at || 0);
   return codePoint === undefined
     ? undefined
     : _getEAWOfCodePoint(codePoint);
