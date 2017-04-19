@@ -7,6 +7,8 @@ npm i -S meaw # not meow!
 ```
 
 ## Usage
+More detailed documentation is available [here](https://doc.esdoc.org/github.com/susisu/meaw/).
+
 ### `getEAW()`
 Gets the [EAW property](http://www.unicode.org/reports/tr11/) of a character.
 
