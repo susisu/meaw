@@ -1,7 +1,13 @@
 {
   "name": "meaw",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Utilities for Unicode East Asian Width (EAW)",
+  "keywords": [
+    "unicode",
+    "east",
+    "asian",
+    "width"
+  ],
   "main": "lib/meaw.cjs.js",
   "module": "lib/meaw.es.js",
   "scripts": {
