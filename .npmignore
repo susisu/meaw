@@ -4,6 +4,8 @@
 # config
 .gitignore
 .eslintrc.json
+.babelrc
+rollup.config.js
 .esdoc.json
 
 # scripts
