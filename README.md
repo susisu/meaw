@@ -55,7 +55,6 @@ assert(computeWidth("Aあ🍣Ω", { "A": 2 }) === 7);
 git clone https://github.com/susisu/meaw.git
 cd meaw
 npm install
-npm run generate # generate source script
 ```
 
 ### Scripts
