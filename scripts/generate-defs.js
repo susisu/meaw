@@ -49,9 +49,9 @@ const HEADER = `/*
 
 const FOOTER = "/* END */";
 
-function readFile(path, options) {
+function readFile(filepath, options) {
   return new Promise((resolve, reject) => {
-    fs.readFile(path, options, (err, data) => {
+    fs.readFile(filepath, options, (err, data) => {
       if (err) {
         reject(err);
         return;
@@ -61,9 +61,9 @@ function readFile(path, options) {
   });
 }
 
-function writeFile(path, data, options) {
+function writeFile(filepath, data, options) {
   return new Promise((resolve, reject) => {
-    fs.writeFile(path, data, options, err => {
+    fs.writeFile(filepath, data, options, err => {
       if (err) {
         reject(err);
         return;
