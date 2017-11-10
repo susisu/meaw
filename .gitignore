@@ -6,7 +6,6 @@ node_modules/
 npm-debug.log*
 
 # auto-generated files
-/src/defs.js
 /lib/
 /.nyc_output/
 /coverage/
