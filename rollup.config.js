@@ -1,13 +1,18 @@
+const pkg = require("./package.json");
+
 export default {
-  entry  : "./src/meaw.js",
-  targets: [
+  input   : "src/meaw.js",
+  external: Object.keys(pkg.dependencies || {}),
+  output  : [
     {
-      dest  : "./lib/meaw.cjs.js",
-      format: "cjs"
+      format   : "cjs",
+      file     : pkg.main,
+      sourcemap: true
     },
     {
-      dest  : "./lib/meaw.es.js",
-      format: "es"
+      format   : "es",
+      file     : pkg.module,
+      sourcemap: true
     }
   ]
 };
