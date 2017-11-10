@@ -1,10 +1,4 @@
 {
-  "env": {
-    "test": {
-      "plugins": [
-        "transform-es2015-modules-commonjs"
-      ],
-      "sourceMaps": "inline"
-    }
-  }
+  "plugins": ["transform-es2015-modules-commonjs"],
+  "sourceMaps": "inline"
 }
