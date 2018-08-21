@@ -3,7 +3,9 @@ Utilities for [Unicode East Asian Width (EAW)](http://www.unicode.org/reports/tr
 
 ## Installation
 ``` shell
-npm i -S meaw # not meow!
+npm i meaw
+# or
+yarn add meaw
 ```
 
 ## Usage
@@ -58,8 +60,9 @@ npm install
 ```
 
 ### Scripts
-|    Name    |                            Description                            |
+| Name       | Description                                                       |
 | ---------- | ----------------------------------------------------------------- |
+| `fetch`    | fetch the latest version of the EAW definition file               |
 | `generate` | generate source script from the EAW definition file               |
 | `lint`     | run lint tool                                                     |
 | `test`     | run tests                                                         |
