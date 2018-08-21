@@ -1,4 +1,4 @@
-### https://raw.github.com/github/gitignore/982268df04842c9b34b7bdb0c4b0696b7db6e6fd/Node.gitignore
+### https://raw.github.com/github/gitignore/320a610b9ffba3ff28166370b6dd9f73096e34b7/Node.gitignore
 
 # Logs
 logs
@@ -38,7 +38,7 @@ build/Release
 node_modules/
 jspm_packages/
 
-# Typescript v1 declaration files
+# TypeScript v1 declaration files
 typings/
 
 # Optional npm cache directory
@@ -59,9 +59,22 @@ typings/
 # dotenv environment variables file
 .env
 
-# Temporary
-/temp/
+# parcel-bundler cache (https://parceljs.org/)
+.cache
 
-# Auto-generated files
-lib/
-doc/
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+
+### Auto-generated files
+/lib
+/doc
