@@ -1,7 +1,7 @@
 "use strict";
 
-const fs   = require("fs");
 const path = require("path");
+const { readFile, writeFile } = require("./common.js");
 
 const SOURCE_PATH = path.resolve(__dirname, "./EastAsianWidth.txt");
 const TARGET_PATH = path.resolve(__dirname, "../src/defs.js");
@@ -52,30 +52,6 @@ const HEADER = `/*
 /* BEGIN */`;
 
 const FOOTER = "/* END */";
-
-function readFile(filepath, options) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(filepath, options, (err, data) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve(data);
-    });
-  });
-}
-
-function writeFile(filepath, data, options) {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(filepath, data, options, err => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve();
-    });
-  });
-}
 
 function parseDef(str) {
   const [range, prop]      = str.split(/\s*;\s*/, 2);
