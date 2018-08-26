@@ -13,8 +13,8 @@
   "scripts": {
     "fetch": "node scripts/fetch.js",
     "generate": "node scripts/generate.js",
-    "lint": "eslint src",
-    "fix": "eslint src --fix",
+    "lint": "eslint src scripts",
+    "fix": "eslint src scripts --fix",
     "test": "mocha --require babel-core/register src/*.test.js",
     "cover": "nyc -r html -r text npm test",
     "build": "rollup -c",
