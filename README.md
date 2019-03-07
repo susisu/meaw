@@ -68,7 +68,6 @@ npm install
 | `generate` | generate source script from the EAW definition file               |
 | `lint`     | run lint tool                                                     |
 | `test`     | run tests                                                         |
-| `cover`    | compute test coverage                                             |
 | `build`    | build script                                                      |
 | `doc`      | build documentation                                               |
 | `clean`    | remove built script and documentation                             |
