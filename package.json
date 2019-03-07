@@ -22,7 +22,8 @@
   "module": "lib/meaw.es.js",
   "types": "meaw.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "meaw.d.ts"
   ],
   "engines": {
     "node": ">=8.0.0"
