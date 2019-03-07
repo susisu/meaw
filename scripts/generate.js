@@ -117,5 +117,5 @@ async function generate() {
 }
 
 generate().catch(err => {
-  console.error(err); // eslint-disable-line no-console
+  console.error(err);
 });

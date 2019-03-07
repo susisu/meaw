@@ -14,5 +14,5 @@ async function fetch() {
 }
 
 fetch().catch(err => {
-  console.error(err); // eslint-disable-line no-console
+  console.error(err);
 });

@@ -13,6 +13,9 @@
       "files": ["scripts/**/*.js"],
       "parserOptions":{
         "sourceType": "script"
+      },
+      "rules": {
+        "no-console": "off"
       }
     }
   ]
