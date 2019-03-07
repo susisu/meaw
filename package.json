@@ -8,11 +8,24 @@
     "asian",
     "width"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susisu/meaw.git"
+  },
+  "homepage": "https://github.com/susisu/meaw#readme",
+  "bugs": {
+    "url": "https://github.com/susisu/meaw/issues"
+  },
+  "author": "Susisu <susisu2413@yahoo.co.jp> (https://github.com/susisu)",
+  "license": "MIT",
   "main": "lib/meaw.cjs.js",
   "module": "lib/meaw.es.js",
   "files": [
     "lib"
   ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "scripts": {
     "fetch": "node scripts/fetch.js",
     "generate": "node scripts/generate.js",
@@ -25,16 +38,6 @@
     "clean": "rimraf lib doc",
     "prepublishOnly": "run-s generate lint cover clean build doc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/susisu/meaw.git"
-  },
-  "author": "Susisu <susisu2413@yahoo.co.jp> (https://github.com/susisu)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/susisu/meaw/issues"
-  },
-  "homepage": "https://github.com/susisu/meaw#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
