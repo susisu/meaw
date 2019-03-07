@@ -7,12 +7,12 @@ export default {
     {
       format   : "cjs",
       file     : pkg.main,
-      sourcemap: true
+      sourcemap: true,
     },
     {
       format   : "es",
       file     : pkg.module,
-      sourcemap: true
-    }
-  ]
+      sourcemap: true,
+    },
+  ],
 };
