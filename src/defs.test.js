@@ -1,5 +1,3 @@
-import { expect } from "chai";
-
 import defs from "./defs.js";
 
 describe("defs", () => {
@@ -9,19 +7,18 @@ describe("defs", () => {
     const propValues   = ["A", "F", "H", "N", "Na", "W"];
     let prev = null;
     for (const def of defs) {
-      expect(def).to.have.property("start")
-        .that.is.within(minCodePoint, maxCodePoint);
-      expect(def).to.have.property("end")
-        .that.is.within(minCodePoint, maxCodePoint);
-      expect(def).to.have.property("prop")
-        .that.is.oneOf(propValues);
+      expect(def.start).toBeGreaterThanOrEqual(minCodePoint);
+      expect(def.start).toBeLessThanOrEqual(maxCodePoint);
+      expect(def.end).toBeGreaterThanOrEqual(minCodePoint);
+      expect(def.end).toBeLessThanOrEqual(maxCodePoint);
+      expect(propValues).toContain(def.prop);
       if (prev) {
-        expect(def.start).to.equal(prev.end + 1);
-        expect(def.prop).not.to.equal(prev.prop);
+        expect(def.start).toBe(prev.end + 1);
+        expect(def.prop).not.toBe(prev.prop);
       }
       prev = def;
     }
-    expect(defs[0].start).to.equal(minCodePoint);
-    expect(defs[defs.length - 1].end).to.equal(maxCodePoint);
+    expect(defs[0].start).toBe(minCodePoint);
+    expect(defs[defs.length - 1].end).toBe(maxCodePoint);
   });
 });

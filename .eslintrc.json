@@ -12,7 +12,7 @@
     {
       "files": ["**/*.test.js"],
       "env": {
-        "mocha": true
+        "jest": true
       }
     },
     {
@@ -22,6 +22,15 @@
       },
       "rules": {
         "no-console": "off"
+      }
+    },
+    {
+      "files": ["jest.config.js"],
+      "parserOptions":{
+        "sourceType": "script"
+      },
+      "rules": {
+        "max-len": "off"
       }
     }
   ]
