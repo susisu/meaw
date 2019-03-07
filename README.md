@@ -1,4 +1,6 @@
 # meaw
+[![Build Status](https://travis-ci.com/susisu/meaw.svg?branch=master)](https://travis-ci.com/susisu/meaw)
+
 Utilities for [Unicode East Asian Width (EAW)](http://www.unicode.org/reports/tr11/).
 
 ## Installation
