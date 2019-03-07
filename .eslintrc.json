@@ -25,7 +25,7 @@
       }
     },
     {
-      "files": ["jest.config.js"],
+      "files": ["jest.config.js", "babel.config.js"],
       "parserOptions":{
         "sourceType": "script"
       },
