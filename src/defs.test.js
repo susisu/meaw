@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-
 import { expect } from "chai";
 
 import defs from "./defs.js";

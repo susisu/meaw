@@ -10,6 +10,12 @@
   },
   "overrides": [
     {
+      "files": ["**/*.test.js"],
+      "env": {
+        "mocha": true
+      }
+    },
+    {
       "files": ["scripts/**/*.js"],
       "parserOptions":{
         "sourceType": "script"
