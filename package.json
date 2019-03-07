@@ -23,7 +23,7 @@
     "build": "rollup -c",
     "doc": "esdoc",
     "clean": "rimraf lib doc",
-    "prepare": "run-s generate lint cover clean build doc"
+    "prepublishOnly": "run-s generate lint cover clean build doc"
   },
   "repository": {
     "type": "git",
