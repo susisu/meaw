@@ -32,11 +32,10 @@
     "lint": "eslint src scripts *.js",
     "lint:fix": "eslint --fix src scripts *.js",
     "test": "jest",
-    "cover": "nyc -r html -r text npm test",
     "build": "rollup -c",
     "doc": "esdoc",
     "clean": "rimraf lib doc",
-    "prepublishOnly": "run-s generate lint cover clean build doc"
+    "prepublishOnly": "run-s generate lint clean build doc"
   },
   "devDependencies": {
     "@susisu/eslint-config": "^0.0.1",
