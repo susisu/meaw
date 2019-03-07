@@ -1,4 +1,4 @@
-### https://raw.github.com/github/gitignore/320a610b9ffba3ff28166370b6dd9f73096e34b7/Node.gitignore
+### https://raw.github.com/github/gitignore/e32de69dc7a71f84b1da648a5d893dd8bcc87d8a/Node.gitignore
 
 # Logs
 logs
@@ -22,7 +22,7 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
 # Bower dependency directory (https://bower.io/)
@@ -58,6 +58,7 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -72,7 +73,13 @@ typings/
 .vuepress/dist
 
 # Serverless directories
-.serverless
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
 
 
 ### Auto-generated files
