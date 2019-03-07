@@ -20,6 +20,7 @@
   "license": "MIT",
   "main": "lib/meaw.cjs.js",
   "module": "lib/meaw.es.js",
+  "types": "meaw.d.ts",
   "files": [
     "lib"
   ],
