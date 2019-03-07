@@ -14,11 +14,9 @@ function _getEAWOfCodePoint(codePoint) {
     const def = defs[i];
     if (codePoint < def.start) {
       max = i - 1;
-    }
-    else if (codePoint > def.end) {
+    } else if (codePoint > def.end) {
       min = i + 1;
-    }
-    else {
+    } else {
       return def.prop;
     }
   }

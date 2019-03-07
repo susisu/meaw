@@ -39,7 +39,7 @@ describe("computeWidth(str, widthMap)", () => {
           "W" : 1,
           "F" : 1,
           "H" : 1,
-          "A" : 1
+          "A" : 1,
         };
         expect(computeWidth("ℵAあＡｱ∀", widthMap)).to.equal(6);
       }
@@ -50,14 +50,14 @@ describe("computeWidth(str, widthMap)", () => {
           "W" : 2,
           "F" : 2,
           "H" : 2,
-          "A" : 2
+          "A" : 2,
         };
         expect(computeWidth("ℵAあＡｱ∀", widthMap)).to.equal(12);
       }
       // incomplete (use default values for the fields not specified)
       {
         const widthMap = {
-          "A": 2
+          "A": 2,
         };
         expect(computeWidth("ℵAあＡｱ∀", widthMap)).to.equal(9);
       }

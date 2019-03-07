@@ -6,7 +6,7 @@ const defaultWidthMap = {
   "W" : 2,
   "F" : 2,
   "H" : 1,
-  "A" : 1
+  "A" : 1,
 };
 
 /**

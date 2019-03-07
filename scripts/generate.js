@@ -56,10 +56,9 @@ async function generate() {
         prev = {
           start: MIN_CODE_POINT,
           end  : def.start - 1,
-          prop : DEFAULT_PROP_VALUE
+          prop : DEFAULT_PROP_VALUE,
         };
-      }
-      else {
+      } else {
         prev = def;
         continue;
       }
@@ -70,15 +69,14 @@ async function generate() {
         prev = {
           start: prev.start,
           end  : def.start - 1,
-          prop : DEFAULT_PROP_VALUE
+          prop : DEFAULT_PROP_VALUE,
         };
-      }
-      else {
+      } else {
         defs.push(prev);
         prev = {
           start: prev.end + 1,
           end  : def.start - 1,
-          prop : DEFAULT_PROP_VALUE
+          prop : DEFAULT_PROP_VALUE,
         };
       }
     }
@@ -87,10 +85,9 @@ async function generate() {
       prev = {
         start: prev.start,
         end  : def.end,
-        prop : prev.prop
+        prop : prev.prop,
       };
-    }
-    else {
+    } else {
       defs.push(prev);
       prev = def;
     }
@@ -102,15 +99,14 @@ async function generate() {
         prev = {
           start: prev.start,
           end  : MAX_CODE_POINT,
-          prop : DEFAULT_PROP_VALUE
+          prop : DEFAULT_PROP_VALUE,
         };
-      }
-      else {
+      } else {
         defs.push(prev);
         prev = {
           start: prev.end + 1,
           end  : MAX_CODE_POINT,
-          prop : DEFAULT_PROP_VALUE
+          prop : DEFAULT_PROP_VALUE,
         };
       }
     }

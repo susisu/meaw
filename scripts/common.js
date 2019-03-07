@@ -42,5 +42,5 @@ function fetchUrl(url) {
 module.exports = {
   readFile,
   writeFile,
-  fetchUrl
+  fetchUrl,
 };
