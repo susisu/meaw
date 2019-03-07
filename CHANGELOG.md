@@ -1,3 +1,6 @@
+## v4.1.0 (2019-03-07)
+- Provide type definitions for TypeScript
+
 ## v4.0.0 (2019-03-07)
 - Upgrade Unicode East Asian Width to 12.0.0
 
