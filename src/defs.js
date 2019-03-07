@@ -576,6 +576,6 @@ export default [
   { start: 983040, end: 1048573, prop: "A" },
   { start: 1048574, end: 1048575, prop: "N" },
   { start: 1048576, end: 1114109, prop: "A" },
-  { start: 1114110, end: 1114111, prop: "N" }
+  { start: 1114110, end: 1114111, prop: "N" },
 ];
 /* END */

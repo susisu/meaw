@@ -35,8 +35,8 @@ function parseDef(str) {
 
 function generateJS(defs) {
   const a = defs
-    .map(def => `  { start: ${def.start}, end: ${def.end}, prop: "${def.prop}" }`)
-    .join(",\n");
+    .map(def => `  { start: ${def.start}, end: ${def.end}, prop: "${def.prop}" },`)
+    .join("\n");
   return `${HEADER}\nexport default [\n${a}\n];\n${FOOTER}\n`;
 }
 
