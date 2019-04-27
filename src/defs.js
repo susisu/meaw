@@ -5,7 +5,7 @@
  */
 
 /* BEGIN */
-export default [
+export const defs = [
   { start: 0, end: 31, prop: "N" },
   { start: 32, end: 126, prop: "Na" },
   { start: 127, end: 160, prop: "N" },
@@ -591,3 +591,5 @@ export default [
   { start: 1114110, end: 1114111, prop: "N" },
 ];
 /* END */
+
+export const version = "12.0.0";

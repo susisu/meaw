@@ -1,4 +1,4 @@
-import defs from "./defs.js";
+import { defs } from "./defs.js";
 
 /**
  * Returns The EAW property of a code point.

@@ -8,6 +8,15 @@ const TARGET_PATH = path.resolve(__dirname, "../src/defs.js");
 
 const ENCODING = "utf-8";
 
+function readVersion(src) {
+  const res = /^# EastAsianWidth-(.+).txt/.exec(src);
+  if (res) {
+    return res[1];
+  } else {
+    return "?";
+  }
+}
+
 const DEFAULT_PROP_VALUE = "N";
 const MIN_CODE_POINT = 0x0000;
 const MAX_CODE_POINT = 0x10FFFF;
@@ -109,18 +118,26 @@ const HEADER = `/*
 
 const FOOTER = "/* END */";
 
-function generateDefsJs(defs) {
+function generateJs(version, defs) {
   const elems = defs
     .map(def => `  { start: ${def.start}, end: ${def.end}, prop: "${def.prop}" },`)
     .join("\n");
-  return `${HEADER}\nexport default [\n${elems}\n];\n${FOOTER}\n`;
+  const js = [
+    HEADER,
+    `export const defs = [\n${elems}\n];`,
+    FOOTER,
+    "",
+    `export const version = ${JSON.stringify(version)};`,
+  ].join("\n") + "\n";
+  return js;
 }
 
 async function generate() {
   const src = await readFile(SOURCE_PATH, { encoding: ENCODING });
+  const version = readVersion(src);
   const defs = readDefs(src);
-  const defsJs = generateDefsJs(defs);
-  await writeFile(TARGET_PATH, defsJs, { encoding: ENCODING });
+  const js = generateJs(version, defs);
+  await writeFile(TARGET_PATH, js, { encoding: ENCODING });
 }
 
 generate().catch(err => {

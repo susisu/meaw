@@ -1,4 +1,3 @@
-import { getEAW } from "./get-eaw.js";
-import { computeWidth } from "./compute-width.js";
-
-export { getEAW, computeWidth };
+export { version as eawVersion } from "./defs.js";
+export { getEAW } from "./get-eaw.js";
+export { computeWidth } from "./compute-width.js";

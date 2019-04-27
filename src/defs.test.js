@@ -1,4 +1,4 @@
-import defs from "./defs.js";
+import { defs } from "./defs.js";
 
 describe("defs", () => {
   it("should be ordered and complete", () => {
