@@ -1,3 +1,7 @@
+## v4.2.0 (2019-04-28)
+- Add `eawVersion`, which is the version of the East Asian Width data file
+- Improve `.d.ts`
+
 ## v4.1.0 (2019-03-07)
 - Provide type definitions for TypeScript
 
