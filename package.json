@@ -1,7 +1,7 @@
 {
   "name": "meaw",
-  "version": "4.2.0",
-  "description": "Utilities for Unicode East Asian Width (EAW)",
+  "version": "4.3.0",
+  "description": "Utilities for Unicode East Asian Width",
   "keywords": [
     "unicode",
     "east",

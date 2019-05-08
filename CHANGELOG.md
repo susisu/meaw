@@ -1,3 +1,6 @@
+## v4.3.0 (2019-05-07)
+- Update Unicode EAW to 12.1.0
+
 ## v4.2.0 (2019-04-28)
 - Add `eawVersion`, which is the version of the East Asian Width data file
 - Improve `.d.ts`
