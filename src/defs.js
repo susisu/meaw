@@ -428,9 +428,7 @@ export const defs = [
   { start: 12831, end: 12831, prop: "N" },
   { start: 12832, end: 12871, prop: "W" },
   { start: 12872, end: 12879, prop: "A" },
-  { start: 12880, end: 13054, prop: "W" },
-  { start: 13055, end: 13055, prop: "N" },
-  { start: 13056, end: 19903, prop: "W" },
+  { start: 12880, end: 19903, prop: "W" },
   { start: 19904, end: 19967, prop: "N" },
   { start: 19968, end: 42124, prop: "W" },
   { start: 42125, end: 42127, prop: "N" },
@@ -592,4 +590,4 @@ export const defs = [
 ];
 /* END */
 
-export const version = "12.0.0";
+export const version = "12.1.0";
