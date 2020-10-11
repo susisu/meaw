@@ -1,16 +1,17 @@
-import { defs } from "./defs.js";
+import { EastAsianWidth } from "./types";
+import { defs } from "./defs";
 
 /**
- * Returns The EAW property of a code point.
+ * Gets the EAW property of a code point.
  * @private
- * @param {string} codePoint A code point
- * @return {string} The EAW property of the specified code point
+ * @param codePoint Code point
+ * @return The EAW property of the code point
  */
-function _getEAWOfCodePoint(codePoint) {
+function getEAWOfCodePoint(codePoint: number): EastAsianWidth {
   let min = 0;
   let max = defs.length - 1;
   while (min !== max) {
-    const i   = min + ((max - min) >> 1);
+    const i = min + ((max - min) >> 1);
     const def = defs[i];
     if (codePoint < def.start) {
       max = i - 1;
@@ -24,10 +25,10 @@ function _getEAWOfCodePoint(codePoint) {
 }
 
 /**
- * Returns the EAW property of a character.
- * @param {string} str A string in which the character is contained
- * @param {number} [at = 0] The position (in code unit) of the character in the string
- * @return {string} The EAW property of the specified character
+ * Gets the EAW property of a character.
+ * @param str Character string
+ * @param pos Character position (in code unit) (default = 0)
+ * @return The EAW property of the character
  * @example
  * import { getEAW } from "meaw";
  *
@@ -49,12 +50,13 @@ function _getEAWOfCodePoint(codePoint) {
  * // Neutral
  * assert(getEAW("ℵ") === "N");
  *
- * // a position (in code unit) can be specified
+ * // character position (in code unit) can be specified
  * assert(getEAW("ℵAあＡｱ∀", 2) === "W");
  */
-export function getEAW(str, at) {
-  const codePoint = str.codePointAt(at || 0);
-  return codePoint === undefined
-    ? undefined
-    : _getEAWOfCodePoint(codePoint);
+export function getEAW(str: string, pos: number = 0): EastAsianWidth | undefined {
+  const codePoint = str.codePointAt(pos);
+  if (codePoint === undefined) {
+    return undefined;
+  }
+  return getEAWOfCodePoint(codePoint);
 }

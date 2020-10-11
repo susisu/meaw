@@ -1,6 +1,6 @@
 "use strict";
 
-const fs      = require("fs");
+const fs = require("fs");
 const request = require("request");
 
 function readFile(filepath, options) {

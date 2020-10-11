@@ -11,8 +11,6 @@ yarn add meaw
 ```
 
 ## Usage
-More detailed documentation is available [here](https://doc.esdoc.org/github.com/susisu/meaw/).
-
 ### `getEAW()`
 Gets the [EAW property](http://www.unicode.org/reports/tr11/) of a character.
 
@@ -37,19 +35,19 @@ assert(getEAW("Я") === "A");
 // Neutral
 assert(getEAW("ℵ") === "N");
 
-// a position (in code unit) can be specified
+// character position (in code unit) can be specified
 assert(getEAW("ℵAあＡｱ∀", 2) === "W");
 ```
 
 ### `computeWidth()`
-Computes width of a string based on the [EAW properties](http://www.unicode.org/reports/tr11/) of its characters.
-By default characters with property Wide (W) or Fullwidth (F) are treated as wide (= 2) and the others are as narrow (= 1).
+Computes the width of a string based on the [EAW properties](http://www.unicode.org/reports/tr11/) of the characters.
+By default, characters with property Wide (W) or Fullwidth (F) are treated as wide (= 2) and others are as narrow (= 1).
 
 ``` javascript
 import { computeWidth } from "meaw";
 
 assert(computeWidth("Aあ🍣Ω") === 6);
-// custom widths can be specified by an object
+// character width for each EAW property can be customized
 assert(computeWidth("Aあ🍣Ω", { "A": 2 }) === 7);
 ```
 
@@ -58,7 +56,7 @@ assert(computeWidth("Aあ🍣Ω", { "A": 2 }) === 7);
 ``` shell
 git clone https://github.com/susisu/meaw.git
 cd meaw
-npm install
+yarn install
 ```
 
 ### Scripts
@@ -69,7 +67,6 @@ npm install
 | `lint`     | run lint tool                                                     |
 | `test`     | run tests                                                         |
 | `build`    | build script                                                      |
-| `doc`      | build documentation                                               |
 | `clean`    | remove built script and documentation                             |
 | `prepare`  | prepare for publishing (executed automatically before publishing) |
 

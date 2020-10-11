@@ -1,18 +1,24 @@
+import typescript from "@rollup/plugin-typescript";
 import pkg from "./package.json";
 
 export default {
-  input   : "src/meaw.js",
-  external: Object.keys(pkg.dependencies || {}),
-  output  : [
+  plugins: [
+    typescript({
+      tsconfig: "tsconfig.build.json",
+    }),
+  ],
+  input: "src/index.ts",
+  output: [
     {
-      format   : "cjs",
-      file     : pkg.main,
+      format: "cjs",
+      file: pkg.main,
       sourcemap: true,
     },
     {
-      format   : "es",
-      file     : pkg.module,
+      format: "es",
+      file: pkg.module,
       sourcemap: true,
     },
   ],
+  external: Object.keys(pkg.dependencies || {}),
 };
