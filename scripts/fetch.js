@@ -1,7 +1,8 @@
 "use strict";
 
+const axios = require("axios");
+const fs = require("fs");
 const path = require("path");
-const { writeFile, fetchUrl } = require("./common.js");
 
 const SOURCE_URL = "https://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt";
 const TARGET_PATH = path.resolve(__dirname, "./EastAsianWidth.txt");
@@ -9,8 +10,8 @@ const TARGET_PATH = path.resolve(__dirname, "./EastAsianWidth.txt");
 const ENCODING = "utf-8";
 
 async function fetch() {
-  const data = await fetchUrl(SOURCE_URL);
-  await writeFile(TARGET_PATH, data, { encoding: ENCODING });
+  const res = await axios.get(SOURCE_URL);
+  await fs.promises.writeFile(TARGET_PATH, res.data, { encoding: ENCODING });
 }
 
 fetch().catch(err => {

@@ -1,7 +1,7 @@
 "use strict";
 
+const fs = require("fs");
 const path = require("path");
-const { readFile, writeFile } = require("./common.js");
 
 const SOURCE_PATH = path.resolve(__dirname, "./EastAsianWidth.txt");
 const TARGET_PATH = path.resolve(__dirname, "../src/defs.ts");
@@ -141,11 +141,11 @@ function generateJs(version, defs) {
 }
 
 async function generate() {
-  const src = await readFile(SOURCE_PATH, { encoding: ENCODING });
+  const src = await fs.promises.readFile(SOURCE_PATH, { encoding: ENCODING });
   const version = readVersion(src);
   const defs = readDefs(src);
   const js = generateJs(version, defs);
-  await writeFile(TARGET_PATH, js, { encoding: ENCODING });
+  await fs.promises.writeFile(TARGET_PATH, js, { encoding: ENCODING });
 }
 
 generate().catch(err => {
