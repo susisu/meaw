@@ -3,7 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const SOURCE_PATH = path.resolve(__dirname, "./EastAsianWidth.txt");
+const SOURCE_PATH = path.resolve(__dirname, "../data/EastAsianWidth.txt");
 const TARGET_PATH = path.resolve(__dirname, "../src/defs.ts");
 
 const ENCODING = "utf-8";

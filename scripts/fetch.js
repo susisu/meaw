@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 const SOURCE_URL = "https://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt";
-const TARGET_PATH = path.resolve(__dirname, "./EastAsianWidth.txt");
+const TARGET_PATH = path.resolve(__dirname, "../data/EastAsianWidth.txt");
 
 const ENCODING = "utf-8";
 
