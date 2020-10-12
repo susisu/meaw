@@ -8,49 +8,52 @@
     "asian",
     "width"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/susisu/meaw.git"
-  },
-  "homepage": "https://github.com/susisu/meaw#readme",
-  "bugs": {
-    "url": "https://github.com/susisu/meaw/issues"
-  },
-  "author": "Susisu <susisu2413@yahoo.co.jp> (https://github.com/susisu)",
+  "repository": "https://github.com/susisu/meaw.git",
+  "author": "Susisu <susisu2413@yahoo.co.jp>",
   "license": "MIT",
-  "main": "lib/meaw.cjs.js",
-  "module": "lib/meaw.es.js",
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
   "types": "meaw.d.ts",
   "files": [
-    "lib",
-    "meaw.d.ts"
+    "lib"
   ],
-  "engines": {
-    "node": ">=8.0.0"
-  },
   "scripts": {
-    "fetch": "node scripts/fetch.js",
-    "generate": "node scripts/generate.js",
-    "lint": "eslint src scripts *.js",
-    "lint:fix": "eslint --fix src scripts *.js",
+    "fetch": "ts-node -P tsconfig.scripts.json scripts/fetch.ts",
+    "generate": "ts-node -P tsconfig.scripts.json scripts/generate.ts",
+    "typecheck": "run-s typecheck:*",
+    "typecheck:main": "tsc -p tsconfig.json --noEmit",
+    "typecheck:scripts": "tsc -p tsconfig.scripts.json --noEmit",
+    "lint": "eslint src scripts '*.js'",
+    "lint-fix": "eslint --fix src scripts '*.js'",
     "test": "jest",
     "build": "rollup -c",
-    "doc": "esdoc",
-    "clean": "rimraf lib doc",
-    "prepublishOnly": "run-s generate lint test clean build doc"
+    "clean": "rimraf lib",
+    "prepublishOnly": "run-s clean generate lint test build",
+    "ci": "run-s typecheck:scripts lint test build"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "@susisu/eslint-config": "^0.0.5",
-    "esdoc": "^1.1.0",
-    "esdoc-importpath-plugin": "^1.0.2",
-    "esdoc-standard-plugin": "^1.0.0",
-    "eslint": "^6.4.0",
-    "jest": "^24.9.0",
+    "@susisu/eslint-config": "^0.0.27",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.8",
+    "@types/node-fetch": "^2.5.7",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-jest-formatting": "^2.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.5.2",
+    "node-fetch": "^2.6.1",
     "npm-run-all": "^4.1.5",
-    "request": "^2.88.0",
-    "rimraf": "^3.0.0",
-    "rollup": "^1.21.3"
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.29.0",
+    "rollup-plugin-typescript2": "^0.27.3",
+    "ts-jest": "^26.4.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
   }
 }
