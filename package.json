@@ -13,7 +13,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
-  "types": "meaw.d.ts",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
