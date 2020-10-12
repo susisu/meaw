@@ -18,8 +18,8 @@
   "scripts": {
     "fetch": "node scripts/fetch.js",
     "generate": "node scripts/generate.js",
-    "lint": "eslint src scripts *.js",
-    "lint-fix": "eslint --fix src scripts *.js",
+    "lint": "eslint src scripts '*.js'",
+    "lint-fix": "eslint --fix src scripts '*.js'",
     "test": "jest",
     "build": "rollup -c",
     "clean": "rimraf lib doc",
