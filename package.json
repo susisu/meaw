@@ -29,7 +29,7 @@
     "build": "rollup -c",
     "clean": "rimraf lib doc",
     "prepublishOnly": "run-s clean generate lint test build",
-    "ci": "run-s lint test build"
+    "ci": "run-s typecheck:scripts lint test build"
   },
   "engines": {
     "node": ">=10.0.0"
