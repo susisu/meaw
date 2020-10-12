@@ -11,13 +11,10 @@
   "repository": "https://github.com/susisu/meaw.git",
   "author": "Susisu <susisu2413@yahoo.co.jp>",
   "license": "MIT",
-  "main": "lib/meaw.cjs.js",
-  "module": "lib/meaw.es.js",
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
   "types": "meaw.d.ts",
-  "files": [
-    "lib",
-    "meaw.d.ts"
-  ],
+  "files": ["lib"],
   "scripts": {
     "fetch": "node scripts/fetch.js",
     "generate": "node scripts/generate.js",
