@@ -154,7 +154,7 @@ function generateJs(version: string, defs: readonly EAWDef[]): string {
   return js;
 }
 
-async function generate(): Promise<void> {
+async function main(): Promise<void> {
   const src = await fs.promises.readFile(SOURCE_PATH, { encoding: ENCODING });
   const version = readVersion(src);
   const defs = readDefs(src);
@@ -162,7 +162,7 @@ async function generate(): Promise<void> {
   await fs.promises.writeFile(TARGET_PATH, js, { encoding: ENCODING });
 }
 
-generate().catch(err => {
+main().catch(err => {
   // eslint-disable-next-line no-console
   console.error(err);
 });
