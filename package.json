@@ -14,7 +14,9 @@
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "meaw.d.ts",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "fetch": "node scripts/fetch.js",
     "generate": "node scripts/generate.js",
