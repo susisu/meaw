@@ -32,6 +32,16 @@ module.exports = {
       },
     },
     {
+      files: ["scripts/**/*.{ts,tsx}"],
+      parserOptions: {
+        project: "./tsconfig.scripts.json",
+      },
+      env: {
+        es6: true,
+        node: true,
+      },
+    },
+    {
       files: ["*.js"],
       extends: [
         "@susisu/eslint-config/preset/es",

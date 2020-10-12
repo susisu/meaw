@@ -1,14 +1,12 @@
-"use strict";
-
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
 const SOURCE_PATH = path.resolve(__dirname, "../data/EastAsianWidth.txt");
 const TARGET_PATH = path.resolve(__dirname, "../src/defs.ts");
 
 const ENCODING = "utf-8";
 
-function readVersion(src) {
+function readVersion(src: string): string {
   const res = /^# EastAsianWidth-(.+).txt/.exec(src);
   if (res) {
     return res[1];
@@ -21,7 +19,13 @@ const DEFAULT_PROP_VALUE = "N";
 const MIN_CODE_POINT = 0x0000;
 const MAX_CODE_POINT = 0x10ffff;
 
-function parseDef(str) {
+type EAWDef = Readonly<{
+  start: number;
+  end: number;
+  prop: string;
+}>;
+
+function parseDef(str: string): EAWDef {
   const [range, prop] = str.split(/\s*;\s*/, 2);
   const [startStr, endStr] = range.split(/\s*\.\.\s*/, 2);
   const start = parseInt(startStr, 16);
@@ -32,7 +36,7 @@ function parseDef(str) {
   return { start, end, prop };
 }
 
-function readDefs(src) {
+function readDefs(src: string): readonly EAWDef[] {
   const defs = src
     .split(/[\r\n]+/) // split lines
     .map(line => line.replace(/^([^#]*).*$/, "$1").trim()) // strip comments
@@ -121,7 +125,7 @@ const BEGIN = `/* BEGIN */`;
 
 const END = "/* END */";
 
-function generateJs(version, defs) {
+function generateJs(version: string, defs: readonly EAWDef[]): string {
   const elems = defs
     .map(def => `  { start: ${def.start}, end: ${def.end}, prop: "${def.prop}" },`)
     .join("\n");
@@ -140,7 +144,7 @@ function generateJs(version, defs) {
   return js;
 }
 
-async function generate() {
+async function generate(): Promise<void> {
   const src = await fs.promises.readFile(SOURCE_PATH, { encoding: ENCODING });
   const version = readVersion(src);
   const defs = readDefs(src);
