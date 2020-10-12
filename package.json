@@ -19,11 +19,12 @@
     "fetch": "node scripts/fetch.js",
     "generate": "node scripts/generate.js",
     "lint": "eslint src scripts *.js",
-    "lint:fix": "eslint --fix src scripts *.js",
+    "lint-fix": "eslint --fix src scripts *.js",
     "test": "jest",
     "build": "rollup -c",
     "clean": "rimraf lib doc",
-    "prepublishOnly": "run-s clean generate lint test build"
+    "prepublishOnly": "run-s clean generate lint test build",
+    "ci": "run-s lint test build"
   },
   "engines": {
     "node": ">=10.0.0"
