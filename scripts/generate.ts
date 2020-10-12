@@ -8,30 +8,40 @@ const ENCODING = "utf-8";
 
 function readVersion(src: string): string {
   const res = /^# EastAsianWidth-(.+).txt/.exec(src);
-  if (res) {
-    return res[1];
-  } else {
-    return "?";
+  if (!res) {
+    throw new Error("failed to get version");
   }
+  return res[1];
 }
 
 const DEFAULT_PROP_VALUE = "N";
 const MIN_CODE_POINT = 0x0000;
 const MAX_CODE_POINT = 0x10ffff;
 
+const eastAsianWidths = ["N", "Na", "W", "F", "H", "A"] as const;
+type EastAsianWidth = typeof eastAsianWidths[number];
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isEastAsianWidth(prop: any): prop is EastAsianWidth {
+  return eastAsianWidths.includes(prop);
+}
+
 type EAWDef = Readonly<{
   start: number;
   end: number;
-  prop: string;
+  prop: EastAsianWidth;
 }>;
 
-function parseDef(str: string): EAWDef {
-  const [range, prop] = str.split(/\s*;\s*/, 2);
+function parseDef(line: string): EAWDef {
+  const [range, prop] = line.split(/\s*;\s*/, 2);
+  if (!isEastAsianWidth(prop)) {
+    throw new Error(`unknown prop: ${prop}`);
+  }
   const [startStr, endStr] = range.split(/\s*\.\.\s*/, 2);
   const start = parseInt(startStr, 16);
   const end = parseInt(endStr || startStr, 16);
   if (Number.isNaN(start) || Number.isNaN(end)) {
-    throw new Error("unknown range");
+    throw new Error(`invalid range: ${start}, ${end}`);
   }
   return { start, end, prop };
 }
@@ -43,8 +53,8 @@ function readDefs(src: string): readonly EAWDef[] {
     .filter(line => line !== "") // remove empty lines
     .map(parseDef); // parse
   // complete and merge definitions
-  const completeDefs = [];
-  let prev = null;
+  const completeDefs: EAWDef[] = [];
+  let prev: EAWDef | undefined = undefined;
   for (const def of defs) {
     if (!prev) {
       // complete head
