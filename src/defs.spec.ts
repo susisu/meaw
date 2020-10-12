@@ -8,20 +8,22 @@ describe("defs", () => {
     const propValues = ["A", "F", "H", "N", "Na", "W"];
     let prev: EAWDef | undefined = undefined;
     for (const def of defs) {
-      expect(def.start).toBeGreaterThanOrEqual(minCodePoint);
-      expect(def.start).toBeLessThanOrEqual(maxCodePoint);
-      expect(def.end).toBeGreaterThanOrEqual(minCodePoint);
-      expect(def.end).toBeLessThanOrEqual(maxCodePoint);
-      expect(propValues).toContain(def.prop);
+      const [start, end, prop] = def;
+      expect(start).toBeGreaterThanOrEqual(minCodePoint);
+      expect(start).toBeLessThanOrEqual(maxCodePoint);
+      expect(end).toBeGreaterThanOrEqual(minCodePoint);
+      expect(end).toBeLessThanOrEqual(maxCodePoint);
+      expect(propValues).toContain(prop);
       if (prev) {
+        const [, prevEnd, prevProp] = prev;
         /* eslint-disable jest/no-conditional-expect */
-        expect(def.start).toBe(prev.end + 1);
-        expect(def.prop).not.toBe(prev.prop);
+        expect(start).toBe(prevEnd + 1);
+        expect(prop).not.toBe(prevProp);
         /* eslint-enable jest/no-conditional-expect */
       }
       prev = def;
     }
-    expect(defs[0].start).toBe(minCodePoint);
-    expect(defs[defs.length - 1].end).toBe(maxCodePoint);
+    expect(defs[0][0]).toBe(minCodePoint);
+    expect(defs[defs.length - 1][1]).toBe(maxCodePoint);
   });
 });

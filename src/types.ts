@@ -1,7 +1,3 @@
 export type EastAsianWidth = "N" | "Na" | "W" | "F" | "H" | "A";
 
-export type EAWDef = Readonly<{
-  start: number;
-  end: number;
-  prop: EastAsianWidth;
-}>;
+export type EAWDef = readonly [start: number, end: number, prop: EastAsianWidth];

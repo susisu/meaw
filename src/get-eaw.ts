@@ -12,16 +12,16 @@ function getEAWOfCodePoint(codePoint: number): EastAsianWidth {
   let max = defs.length - 1;
   while (min !== max) {
     const i = min + ((max - min) >> 1);
-    const def = defs[i];
-    if (codePoint < def.start) {
+    const [start, end, prop] = defs[i];
+    if (codePoint < start) {
       max = i - 1;
-    } else if (codePoint > def.end) {
+    } else if (codePoint > end) {
       min = i + 1;
     } else {
-      return def.prop;
+      return prop;
     }
   }
-  return defs[min].prop;
+  return defs[min][2];
 }
 
 /**

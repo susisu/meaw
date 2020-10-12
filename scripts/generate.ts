@@ -136,9 +136,7 @@ const BEGIN = `/* BEGIN */`;
 const END = "/* END */";
 
 function generateJs(version: string, defs: readonly EAWDef[]): string {
-  const elems = defs
-    .map(def => `  { start: ${def.start}, end: ${def.end}, prop: "${def.prop}" },`)
-    .join("\n");
+  const elems = defs.map(def => `  [${def.start}, ${def.end}, "${def.prop}"],`).join("\n");
   const js =
     [
       HEADER,
