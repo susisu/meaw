@@ -20,14 +20,14 @@
   "scripts": {
     "fetch": "ts-node -P tsconfig.scripts.json scripts/fetch.ts",
     "generate": "ts-node -P tsconfig.scripts.json scripts/generate.ts",
-    "lint": "eslint src scripts '*.js'",
-    "lint-fix": "eslint --fix src scripts '*.js'",
     "typecheck": "run-s typecheck:*",
     "typecheck:main": "tsc -p tsconfig.json --noEmit",
     "typecheck:scripts": "tsc -p tsconfig.scripts.json --noEmit",
+    "lint": "eslint src scripts '*.js'",
+    "lint-fix": "eslint --fix src scripts '*.js'",
     "test": "jest",
     "build": "rollup -c",
-    "clean": "rimraf lib doc",
+    "clean": "rimraf lib",
     "prepublishOnly": "run-s clean generate lint test build",
     "ci": "run-s typecheck:scripts lint test build"
   },
