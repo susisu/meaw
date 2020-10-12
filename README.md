@@ -60,15 +60,15 @@ yarn install
 ```
 
 ### Scripts
-| Name       | Description                                                       |
-| ---------- | ----------------------------------------------------------------- |
-| `fetch`    | fetch the latest version of the EAW definition file               |
-| `generate` | generate source script from the EAW definition file               |
-| `lint`     | run lint tool                                                     |
-| `test`     | run tests                                                         |
-| `build`    | build script                                                      |
-| `clean`    | remove built script and documentation                             |
-| `prepare`  | prepare for publishing (executed automatically before publishing) |
+| Name        | Description                                                       |
+| ----------- | ----------------------------------------------------------------- |
+| `fetch`     | fetch the latest version of the EAW definition file               |
+| `generate`  | generate source script from the EAW definition file               |
+| `typecheck` | run typechecker                                                   |
+| `lint`      | run lint tool                                                     |
+| `test`      | run tests                                                         |
+| `build`     | build script                                                      |
+| `clean`     | remove built script                                               |
 
 ## License
 [MIT License](http://opensource.org/licenses/mit-license.php)
