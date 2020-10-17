@@ -1,3 +1,12 @@
+## v5.0.0 (2020-10-17)
+### Breaking changes
+- Update EAW version to Unicode 13.0.0
+- Change return type of `getEAW()` from `EastAsianWidth` to `EastAsianWidth | undefined`
+
+### Features
+- Rewrite in TypeScript
+- Reduce script size
+
 ## v4.3.0 (2019-05-08)
 - Update Unicode EAW to 12.1.0
 
