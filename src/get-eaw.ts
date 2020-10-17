@@ -3,7 +3,6 @@ import { defs } from "./defs";
 
 /**
  * Gets the EAW property of a code point.
- * @private
  * @param codePoint Code point
  * @return The EAW property of the code point
  */
