@@ -28,12 +28,11 @@ export function computeWidth(
   str: string,
   widths?: Readonly<Partial<Record<EastAsianWidth, number>>>
 ): number {
-  const map = widths ? { ...defaultWidths, ...widths } : defaultWidths;
   let width = 0;
   for (const char of str) {
-    const eaw = getEAW(char);
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- expected to be defined
-    width += map[eaw!];
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- char cannot be empty
+    const eaw = getEAW(char)!;
+    width += (widths && widths[eaw]) || defaultWidths[eaw];
   }
   return width;
 }
