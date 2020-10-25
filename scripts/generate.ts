@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { program } from "commander";
 
 const SOURCE_PATH = path.resolve(__dirname, "../data/EastAsianWidth.txt");
 const TARGET_PATH = path.resolve(__dirname, "../src/defs.ts");
@@ -32,7 +33,7 @@ type EAWDef = Readonly<{
   prop: EastAsianWidth;
 }>;
 
-function parseDef(line: string): EAWDef {
+function readDef(line: string): EAWDef {
   const [range, prop] = line.split(/\s*;\s*/, 2);
   if (!isEastAsianWidth(prop)) {
     throw new Error(`unknown prop: ${prop}`);
@@ -51,7 +52,7 @@ function readDefs(src: string): readonly EAWDef[] {
     .split(/[\r\n]+/) // split lines
     .map(line => line.replace(/^([^#]*).*$/, "$1").trim()) // strip comments
     .filter(line => line !== "") // remove empty lines
-    .map(parseDef); // parse
+    .map(readDef); // parse
   // complete and merge definitions
   const completeDefs: EAWDef[] = [];
   let prev: EAWDef | undefined = undefined;
@@ -152,15 +153,27 @@ function generateJs(version: string, defs: readonly EAWDef[]): string {
   return js;
 }
 
-async function main(): Promise<void> {
+async function main(test: boolean): Promise<void> {
   const src = await fs.promises.readFile(SOURCE_PATH, { encoding: ENCODING });
   const version = readVersion(src);
   const defs = readDefs(src);
   const js = generateJs(version, defs);
-  await fs.promises.writeFile(TARGET_PATH, js, { encoding: ENCODING });
+  if (test) {
+    const trg = await fs.promises.readFile(TARGET_PATH, { encoding: ENCODING });
+    if (trg !== js) {
+      throw new Error("Generated script is outdated.");
+    }
+  } else {
+    await fs.promises.writeFile(TARGET_PATH, js, { encoding: ENCODING });
+  }
 }
 
-main().catch(err => {
+program.option("-t, --test", "test if generated script is outdated").parse(process.argv);
+
+const test = program.test as boolean;
+
+main(test).catch(err => {
   // eslint-disable-next-line no-console
   console.error(err);
+  process.exit(1);
 });
