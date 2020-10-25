@@ -24,7 +24,8 @@ jobs:
       with:
         branch: feat/update-eaw
         commit-message: 'feat: update EastAsianWidth'
-        title: 'Update EastAsianWidth'
+        title: '[DO NOT MERGE] Update EastAsianWidth'
         body: |
           Update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.eaw_version }}
         delete-branch: true
+        draft: true
