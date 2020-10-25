@@ -23,7 +23,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3
       with:
         branch: feat/update-eaw
-        commit-message: 'feat: update EastAsianWidth'
+        commit-message: 'feat: update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.eaw_version }}'
         title: 'Update EastAsianWidth'
         body: |
           Update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.eaw_version }}
