@@ -21,6 +21,7 @@
     "fetch": "ts-node -P tsconfig.scripts.json scripts/fetch.ts",
     "generate": "ts-node -P tsconfig.scripts.json scripts/generate.ts",
     "generate-test": "ts-node -P tsconfig.scripts.json scripts/generate.ts --test",
+    "dump-eaw-version": "ts-node -P tsconfig.scripts.json scripts/dump-eaw-version.ts",
     "typecheck": "run-s typecheck:*",
     "typecheck:main": "tsc -p tsconfig.json --noEmit",
     "typecheck:scripts": "tsc -p tsconfig.scripts.json --noEmit",
