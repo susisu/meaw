@@ -1,5 +1,5 @@
 # meaw
-[![Build Status](https://travis-ci.com/susisu/meaw.svg?branch=master)](https://travis-ci.com/susisu/meaw)
+[![CI](https://github.com/susisu/meaw/workflows/CI/badge.svg)](https://github.com/susisu/meaw/actions?query=workflow%3ACI)
 
 Utilities for [Unicode East Asian Width (EAW)](http://www.unicode.org/reports/tr11/).
 
