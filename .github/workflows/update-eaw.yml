@@ -1,0 +1,30 @@
+name: Update EastAsianWidth
+on:
+  schedule:
+  - cron: '0 0 * * *'
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - run: yarn install --frozen-lockfile
+    - run: yarn fetch
+    - run: yarn generate
+    - name: Dump EAW version
+      id: dump_eaw_version
+      run: echo "::set-output name=eaw_version::$(yarn --silent dump-eaw-version)"
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        branch: feat/update-eaw
+        commit-message: 'feat: update EastAsianWidth'
+        title: 'Update EastAsianWidth'
+        body: |
+          Update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.eaw_version }}
+        delete-branch: true
