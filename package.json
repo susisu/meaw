@@ -28,8 +28,7 @@
     "test": "jest",
     "build": "rollup -c",
     "clean": "rimraf lib",
-    "prepublishOnly": "run-s clean generate lint test build",
-    "ci": "run-s typecheck:scripts lint test build"
+    "prepublishOnly": "run-s clean generate lint test build"
   },
   "engines": {
     "node": ">=10.0.0"
