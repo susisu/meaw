@@ -36,9 +36,6 @@
     "clean": "rimraf lib",
     "prepublishOnly": "run-s clean generate lint test build"
   },
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "devDependencies": {
     "@susisu/eslint-config": "^0.0.39",
     "@types/jest": "^27.0.1",
