@@ -1,6 +1,6 @@
 /lib
 
-### https://raw.github.com/github/gitignore/218a941be92679ce67d0484547e3e142b2f5f6f0/Node.gitignore
+### https://raw.github.com/github/gitignore/b0012e4930d0a8c350254a3caeedf7441ea286a3/Node.gitignore
 
 # Logs
 logs
@@ -9,6 +9,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+.pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -75,6 +76,7 @@ web_modules/
 # dotenv environment variables file
 .env
 .env.test
+.env.production
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
