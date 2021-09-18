@@ -1,3 +1,7 @@
+## v6.0.0 (2021-09-18)
+### Breaking changes
+- Update to Unicode 14.0.0
+
 ## v5.0.0 (2020-10-17)
 ### Breaking changes
 - Update EAW version to Unicode 13.0.0
