@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import url from "url";
+import fs from "node:fs";
+import path from "node:path";
+import url from "node:url";
 import fetch from "node-fetch";
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
