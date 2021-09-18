@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import url from "url";
-import { program } from "commander";
 import { EAWDef, readVersion, readDefs } from "./lib/eaw.js";
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
@@ -37,7 +36,8 @@ function generateJs(version: string, defs: readonly EAWDef[]): string {
   return js;
 }
 
-async function main(test: boolean): Promise<void> {
+async function main(): Promise<void> {
+  const test = process.argv[2] === "test";
   const src = await fs.promises.readFile(SOURCE_PATH, { encoding: ENCODING });
   const version = readVersion(src);
   const defs = readDefs(src);
@@ -52,12 +52,8 @@ async function main(test: boolean): Promise<void> {
   }
 }
 
-program.option("-t, --test", "test if generated script is outdated").parse(process.argv);
-
-const test = program.test as boolean;
-
-main(test).catch(err => {
+main().catch(err => {
   // eslint-disable-next-line no-console
   console.error(err);
-  process.exit(1);
+  process.exitCode = 1;
 });

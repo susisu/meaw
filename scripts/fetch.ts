@@ -18,5 +18,5 @@ async function main(): Promise<void> {
 main().catch(err => {
   // eslint-disable-next-line no-console
   console.error(err);
-  process.exit(1);
+  process.exitCode = 1;
 });
