@@ -3,7 +3,7 @@
 module.exports = {
   overrides: [
     {
-      files: ["*.{ts,tsx}"],
+      files: ["*.ts"],
       extends: [
         "@susisu/eslint-config/preset/ts-types",
         "prettier",
@@ -22,14 +22,14 @@ module.exports = {
       },
     },
     {
-      files: ["*.{test,spec}.{ts,tsx}", "src/**/__tests__/**/*.{ts,tsx}"],
+      files: ["*.spec.ts", "src/**/__tests__/**/*.ts"],
       extends: ["plugin:jest/recommended", "plugin:jest-formatting/recommended"],
       env: {
         "jest/globals": true,
       },
     },
     {
-      files: ["scripts/**/*.{ts,tsx}"],
+      files: ["scripts/**/*.ts"],
       parserOptions: {
         project: "./tsconfig.scripts.json",
       },
