@@ -13,9 +13,8 @@ const MAX_CODE_POINT = 0x10ffff;
 const eastAsianWidths = ["N", "Na", "W", "F", "H", "A"] as const;
 export type EastAsianWidth = typeof eastAsianWidths[number];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function isEastAsianWidth(prop: any): prop is EastAsianWidth {
-  return eastAsianWidths.includes(prop);
+function isEastAsianWidth(prop: string): prop is EastAsianWidth {
+  return eastAsianWidths.some(p => p === prop);
 }
 
 export type EAWDef = Readonly<{
