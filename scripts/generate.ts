@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
+import url from "url";
 import { program } from "commander";
-import { EAWDef, readVersion, readDefs } from "./lib/eaw";
+import { EAWDef, readVersion, readDefs } from "./lib/eaw.js";
 
-const SOURCE_PATH = path.resolve(__dirname, "../data/EastAsianWidth.txt");
-const TARGET_PATH = path.resolve(__dirname, "../src/defs.ts");
+const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
+const SOURCE_PATH = path.resolve(DIRNAME, "../data/EastAsianWidth.txt");
+const TARGET_PATH = path.resolve(DIRNAME, "../src/defs.ts");
 
 const ENCODING = "utf-8";
 

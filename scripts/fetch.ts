@@ -1,9 +1,11 @@
 import fs from "fs";
-import fetch from "node-fetch";
 import path from "path";
+import url from "url";
+import fetch from "node-fetch";
 
+const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 const SOURCE_URL = "https://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt";
-const TARGET_PATH = path.resolve(__dirname, "../data/EastAsianWidth.txt");
+const TARGET_PATH = path.resolve(DIRNAME, "../data/EastAsianWidth.txt");
 
 const ENCODING = "utf-8";
 
