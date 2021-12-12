@@ -6,8 +6,8 @@ module.exports = {
       files: ["*.ts"],
       extends: [
         "@susisu/eslint-config/preset/ts-types",
-        "prettier",
         "plugin:eslint-comments/recommended",
+        "prettier",
       ],
       parserOptions: {
         ecmaVersion: 2020,
