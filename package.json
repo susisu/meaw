@@ -18,10 +18,10 @@
     "lib"
   ],
   "scripts": {
-    "fetch": "TS_NODE_PROJECT=tsconfig.scripts.json node --loader ts-node/esm scripts/fetch.ts",
-    "generate": "TS_NODE_PROJECT=tsconfig.scripts.json node --loader ts-node/esm scripts/generate.ts",
-    "generate-test": "TS_NODE_PROJECT=tsconfig.scripts.json node --loader ts-node/esm scripts/generate.ts test",
-    "dump-eaw-version": "TS_NODE_PROJECT=tsconfig.scripts.json node --loader ts-node/esm scripts/dump-eaw-version.ts",
+    "fetch": "ts-node-esm -P tsconfig.scripts.json scripts/fetch.ts",
+    "generate": "ts-node-esm -P tsconfig.scripts.json scripts/generate.ts",
+    "generate-test": "ts-node-esm -P tsconfig.scripts.json scripts/generate.ts test",
+    "dump-eaw-version": "ts-node-esm -P tsconfig.scripts.json scripts/dump-eaw-version.ts",
     "lint": "run-s lint:eslint lint:prettier",
     "lint-fix": "run-s lint-fix:eslint lint-fix:prettier",
     "lint:eslint": "eslint '*.js' src scripts",
