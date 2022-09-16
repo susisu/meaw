@@ -7,12 +7,12 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ["./src/**/*.ts", "!./src/**/*.spec.ts"],
   coverageDirectory: "coverage",
-  globals: {
-    "ts-jest": {
-      tsconfig: "./tsconfig.test.json",
-    },
-  },
   transform: {
-    "\\.ts$": "ts-jest",
+    "\\.ts$": [
+      "ts-jest",
+      {
+        tsconfig: "./tsconfig.test.json",
+      },
+    ],
   },
 };
