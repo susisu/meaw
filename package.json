@@ -1,6 +1,6 @@
 {
   "name": "meaw",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "Utilities for Unicode East Asian Width",
   "keywords": [
     "unicode",

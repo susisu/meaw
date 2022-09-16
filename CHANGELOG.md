@@ -1,3 +1,7 @@
+## v7.0.0 (2022-09-17)
+### Breaking changes
+- Update to Unicode 15.0.0
+
 ## v6.0.0 (2021-09-18)
 ### Breaking changes
 - Update to Unicode 14.0.0
