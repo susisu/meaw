@@ -18,13 +18,13 @@ jobs:
     - run: yarn generate
     - name: Dump EAW version
       id: dump_eaw_version
-      run: echo "::set-output name=eaw_version::$(yarn --silent dump-eaw-version)"
+      run: echo "EAW_VERSION=$(yarn --silent dump-eaw-version)" >> $GITHUB_OUTPUT
     - name: Create pull request
       uses: peter-evans/create-pull-request@v3
       with:
         branch: feat/update-eaw
-        commit-message: 'feat: update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.eaw_version }}'
+        commit-message: 'feat: update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.EAW_VERSION }}'
         title: 'Update EastAsianWidth'
         body: |
-          Update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.eaw_version }}
+          Update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.EAW_VERSION }}
         delete-branch: true
