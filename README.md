@@ -3,6 +3,8 @@
 
 Utilities for [Unicode East Asian Width (EAW)](http://www.unicode.org/reports/tr11/).
 
+**Note:** If you want to compute the "visual" length of a string, consider using other libraries such as [graphemer](https://github.com/flmnt/graphemer).
+
 ## Installation
 ``` shell
 npm i meaw
