@@ -13,6 +13,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
+  "umd": "lib/index.umd.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"

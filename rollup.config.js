@@ -19,6 +19,12 @@ export default {
       file: pkg.module,
       sourcemap: true,
     },
+    {
+      format: "umd",
+      file: pkg.umd,
+      name: pkg.name,
+      sourcemap: true,
+    },
   ],
   external: Object.keys(pkg.dependencies || {}),
 };
