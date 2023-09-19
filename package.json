@@ -11,6 +11,7 @@
   "repository": "https://github.com/susisu/meaw.git",
   "author": "Susisu <susisu2413@yahoo.co.jp>",
   "license": "MIT",
+  "type": "commonjs",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
