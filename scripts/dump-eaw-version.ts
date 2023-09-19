@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs from "node:fs/promises";
 import path from "node:path";
 import url from "node:url";
 import { readVersion } from "./lib/eaw.js";
@@ -9,7 +9,7 @@ const SOURCE_PATH = path.resolve(DIRNAME, "../data/EastAsianWidth.txt");
 const ENCODING = "utf-8";
 
 async function main(): Promise<void> {
-  const src = await fs.promises.readFile(SOURCE_PATH, { encoding: ENCODING });
+  const src = await fs.readFile(SOURCE_PATH, { encoding: ENCODING });
   const version = readVersion(src);
   process.stdout.write(version + "\n");
 }

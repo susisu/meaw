@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs from "node:fs/promises";
 import path from "node:path";
 import url from "node:url";
 import fetch from "node-fetch";
@@ -12,7 +12,7 @@ const ENCODING = "utf-8";
 async function main(): Promise<void> {
   const res = await fetch(SOURCE_URL);
   const text = await res.text();
-  await fs.promises.writeFile(TARGET_PATH, text, { encoding: ENCODING });
+  await fs.writeFile(TARGET_PATH, text, { encoding: ENCODING });
 }
 
 main().catch(err => {

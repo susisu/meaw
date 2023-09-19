@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs from "node:fs/promises";
 import path from "node:path";
 import url from "node:url";
 import type { EAWDef } from "./lib/eaw.js";
@@ -39,17 +39,17 @@ function generateJs(version: string, defs: readonly EAWDef[]): string {
 
 async function main(): Promise<void> {
   const test = process.argv[2] === "test";
-  const src = await fs.promises.readFile(SOURCE_PATH, { encoding: ENCODING });
+  const src = await fs.readFile(SOURCE_PATH, { encoding: ENCODING });
   const version = readVersion(src);
   const defs = readDefs(src);
   const js = generateJs(version, defs);
   if (test) {
-    const trg = await fs.promises.readFile(TARGET_PATH, { encoding: ENCODING });
+    const trg = await fs.readFile(TARGET_PATH, { encoding: ENCODING });
     if (trg !== js) {
       throw new Error("Generated script is outdated.");
     }
   } else {
-    await fs.promises.writeFile(TARGET_PATH, js, { encoding: ENCODING });
+    await fs.writeFile(TARGET_PATH, js, { encoding: ENCODING });
   }
 }
 
