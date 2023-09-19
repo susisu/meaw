@@ -17,13 +17,16 @@ jobs:
           - '20'
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
-      - run: yarn typecheck:scripts
-      - run: yarn generate-test
-      - run: yarn lint
-      - run: yarn test
-      - run: yarn build
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm typecheck:scripts
+      - run: pnpm generate-test
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build
