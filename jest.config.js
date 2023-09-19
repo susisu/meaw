@@ -1,6 +1,4 @@
-"use strict";
-
-module.exports = {
+export default {
   roots: ["./src"],
   testMatch: ["**/*.spec.ts"],
   testEnvironment: "node",
@@ -8,11 +6,6 @@ module.exports = {
   collectCoverageFrom: ["./src/**/*.ts", "!./src/**/*.spec.ts"],
   coverageDirectory: "coverage",
   transform: {
-    "\\.ts$": [
-      "ts-jest",
-      {
-        tsconfig: "./tsconfig.test.json",
-      },
-    ],
+    "\\.ts$": ["ts-jest", { tsconfig: "./tsconfig.test.json" }],
   },
 };
