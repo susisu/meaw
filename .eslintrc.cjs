@@ -4,21 +4,14 @@ module.exports = {
   overrides: [
     {
       files: ["*.ts"],
-      extends: [
-        "@susisu/eslint-config/preset/ts",
-        "plugin:eslint-comments/recommended",
-        "prettier",
-      ],
+      extends: ["@susisu/eslint-config/preset/ts", "prettier"],
       parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: "latest",
         sourceType: "module",
         project: "./tsconfig.json",
       },
       env: {
         es6: true,
-      },
-      rules: {
-        "eslint-comments/no-unused-disable": "error",
       },
     },
     {
@@ -39,28 +32,27 @@ module.exports = {
       },
     },
     {
-      files: ["*.cjs"],
-      extends: [
-        "@susisu/eslint-config/preset/js",
-        "plugin:eslint-comments/recommended",
-        "prettier",
-      ],
+      files: ["*.js"],
+      extends: ["@susisu/eslint-config/preset/js", "prettier"],
       parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: "script",
+        ecmaVersion: "latest",
+        sourceType: "module",
       },
       env: {
         es6: true,
         node: true,
       },
-      rules: {
-        "eslint-comments/no-unused-disable": "error",
-      },
     },
     {
-      files: ["rollup.config.cjs"],
+      files: ["*.cjs"],
+      extends: ["@susisu/eslint-config/preset/js", "prettier"],
       parserOptions: {
-        sourceType: "module",
+        ecmaVersion: "latest",
+        sourceType: "script",
+      },
+      env: {
+        es6: true,
+        node: true,
       },
     },
   ],
