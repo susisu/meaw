@@ -9,16 +9,19 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
-      - run: yarn fetch
-      - run: yarn generate
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm fetch
+      - run: pnpm generate
       - id: dump_eaw_version
-        run: echo "EAW_VERSION=$(yarn --silent dump-eaw-version)" >> $GITHUB_OUTPUT
+        run: echo "EAW_VERSION=$(pnpm --silent dump-eaw-version)" >> $GITHUB_OUTPUT
       - uses: peter-evans/create-pull-request@v4
         with:
           branch: feat/update-eaw
