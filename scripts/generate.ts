@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
-import { EAWDef, readVersion, readDefs } from "./lib/eaw.js";
+import type { EAWDef } from "./lib/eaw.js";
+import { readVersion, readDefs } from "./lib/eaw.js";
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 const SOURCE_PATH = path.resolve(DIRNAME, "../data/EastAsianWidth.txt");

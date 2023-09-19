@@ -1,4 +1,4 @@
-import { EAWDef } from "./types";
+import type { EAWDef } from "./types";
 import { defs } from "./defs";
 
 describe("defs", () => {

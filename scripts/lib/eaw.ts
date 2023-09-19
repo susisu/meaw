@@ -11,7 +11,7 @@ const MIN_CODE_POINT = 0x0000;
 const MAX_CODE_POINT = 0x10ffff;
 
 const eastAsianWidths = ["N", "Na", "W", "F", "H", "A"] as const;
-export type EastAsianWidth = typeof eastAsianWidths[number];
+export type EastAsianWidth = (typeof eastAsianWidths)[number];
 
 function isEastAsianWidth(prop: string): prop is EastAsianWidth {
   return eastAsianWidths.some(p => p === prop);

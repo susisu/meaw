@@ -1,4 +1,4 @@
-import { EastAsianWidth } from "./types";
+import type { EastAsianWidth } from "./types";
 import { defs } from "./defs";
 
 /**

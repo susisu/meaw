@@ -1,4 +1,4 @@
-import { EastAsianWidth } from "./types";
+import type { EastAsianWidth } from "./types";
 import { getEAW } from "./get-eaw";
 
 const defaultWidths: Readonly<Record<EastAsianWidth, number>> = {
