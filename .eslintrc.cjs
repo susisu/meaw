@@ -39,7 +39,7 @@ module.exports = {
       },
     },
     {
-      files: ["*.js"],
+      files: ["*.cjs"],
       extends: [
         "@susisu/eslint-config/preset/js",
         "plugin:eslint-comments/recommended",
@@ -58,7 +58,7 @@ module.exports = {
       },
     },
     {
-      files: ["rollup.config.js"],
+      files: ["rollup.config.cjs"],
       parserOptions: {
         sourceType: "module",
       },
