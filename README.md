@@ -68,7 +68,7 @@ assert(computeWidth("Aあ🍣Ω", { "A": 2 }) === 7);
 ``` shell
 git clone https://github.com/susisu/meaw.git
 cd meaw
-yarn install
+pnpm i
 ```
 
 ### Scripts
