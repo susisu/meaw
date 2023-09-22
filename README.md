@@ -4,8 +4,6 @@
 
 Utilities for [Unicode East Asian Width (EAW)](http://www.unicode.org/reports/tr11/).
 
-**Note:** If you want to compute the "visual" length of a string, consider using other libraries such as [graphemer](https://github.com/flmnt/graphemer).
-
 ## Installation
 
 ``` shell
@@ -50,7 +48,9 @@ assert(getEAW("ℵAあＡｱ∀", 2) === "W");
 
 ### `computeWidth()`
 
-Computes the width of a string based on the [EAW properties](http://www.unicode.org/reports/tr11/) of the characters.
+**Deprecated.** To calculate the visual width of a string, it is more accurate and recommended to split the string into graphemes (using libraries like [graphemer](https://github.com/flmnt/graphemer)) and calculate the width for those graphemes.
+
+Computes an approximate width of a string based on the [EAW properties](http://www.unicode.org/reports/tr11/) of the characters.
 By default, characters with property Wide (W) or Fullwidth (F) are treated as wide (= 2) and others are as narrow (= 1).
 
 ``` javascript

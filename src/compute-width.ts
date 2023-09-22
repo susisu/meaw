@@ -14,6 +14,7 @@ const defaultWidths: Readonly<Record<EastAsianWidth, number>> = {
  * Computes the width of a string based on the EAW properties of the characters.
  * By default, characters with property Wide (W) or Fullwidth (F) are treated as wide (= 2)
  * and others are as narrow (= 1).
+ * @deprecated
  * @param str Character string
  * @param widths An object that maps EAW properties to character widths
  * @return The computed width
