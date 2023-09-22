@@ -1,3 +1,12 @@
+## v8.0.0 (2023-09-23)
+
+### Breaking changes
+
+- Update to Unicode 15.1.0
+- Drop support for Node.js 14 and 16
+- Deprecate `computeWidth()`
+  - To calculate the visual width of a string, it is more accurate and recommended to split the string into graphemes (using libraries like [graphemer](https://github.com/flmnt/graphemer)) and calculate the width for those graphemes.
+
 ## v7.0.0 (2022-09-17)
 
 ### Breaking changes
