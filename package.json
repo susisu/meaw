@@ -34,7 +34,9 @@
     "typecheck:scripts": "tsc -p tsconfig.scripts.json --noEmit",
     "test": "jest",
     "build": "rollup -c",
-    "clean": "rimraf lib",
+    "clean": "run-s clean:build clean:rm",
+    "clean:build": "tsc --build tsconfig.build.json --clean",
+    "clean:rm": "rimraf lib .rollup.cache",
     "prepublishOnly": "run-s clean generate lint test build"
   },
   "devDependencies": {
