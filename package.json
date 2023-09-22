@@ -16,7 +16,10 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "src",
+    "!src/**/*.spec.ts",
+    "!src/**/__tests__"
   ],
   "scripts": {
     "fetch": "TS_NODE_PROJECT=tsconfig.scripts.json node --loader ts-node/esm scripts/fetch.ts",
