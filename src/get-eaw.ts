@@ -1,5 +1,5 @@
-import type { EastAsianWidth } from "./types";
-import { defs } from "./defs";
+import type { EastAsianWidth } from "./types.js";
+import { defs } from "./defs.js";
 
 /**
  * Gets the EAW property of a code point.

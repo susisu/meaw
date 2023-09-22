@@ -1,4 +1,4 @@
-import { computeWidth } from "./compute-width";
+import { computeWidth } from "./compute-width.js";
 
 describe("computeWidth", () => {
   describe("without custom widths specified", () => {

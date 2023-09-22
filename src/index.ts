@@ -1,4 +1,4 @@
-export { EastAsianWidth } from "./types";
-export { version as eawVersion } from "./defs";
-export { getEAW } from "./get-eaw";
-export { computeWidth } from "./compute-width";
+export { EastAsianWidth } from "./types.js";
+export { version as eawVersion } from "./defs.js";
+export { getEAW } from "./get-eaw.js";
+export { computeWidth } from "./compute-width.js";

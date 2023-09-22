@@ -1,5 +1,5 @@
-import type { EAWDef } from "./types";
-import { defs } from "./defs";
+import type { EAWDef } from "./types.js";
+import { defs } from "./defs.js";
 
 describe("defs", () => {
   it("should be ordered and complete", () => {

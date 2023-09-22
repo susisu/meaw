@@ -1,4 +1,4 @@
-import { getEAW } from "./get-eaw";
+import { getEAW } from "./get-eaw.js";
 
 describe("getEAW", () => {
   describe("without position specified", () => {
