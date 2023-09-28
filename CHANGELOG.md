@@ -1,3 +1,7 @@
+## v8.0.1 (2023-09-29)
+
+- Update build tool
+
 ## v8.0.0 (2023-09-23)
 
 ### Breaking changes
