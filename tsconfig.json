@@ -2,7 +2,6 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "incremental": true,
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -10,8 +9,7 @@
     "lib": ["esnext"],
     "strict": true,
     "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true
+    "declaration": true
   },
   "include": [
     "src/**/*"
