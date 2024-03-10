@@ -15,7 +15,7 @@ async function main(): Promise<void> {
   await fs.writeFile(TARGET_PATH, text, { encoding: ENCODING });
 }
 
-main().catch(err => {
+main().catch((err) => {
   // eslint-disable-next-line no-console
   console.error(err);
   process.exitCode = 1;

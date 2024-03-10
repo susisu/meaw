@@ -14,7 +14,7 @@ const eastAsianWidths = ["N", "Na", "W", "F", "H", "A"] as const;
 export type EastAsianWidth = (typeof eastAsianWidths)[number];
 
 function isEastAsianWidth(prop: string): prop is EastAsianWidth {
-  return eastAsianWidths.some(p => p === prop);
+  return eastAsianWidths.some((p) => p === prop);
 }
 
 export type EAWDef = Readonly<{
@@ -40,8 +40,8 @@ function readDef(line: string): EAWDef {
 export function readDefs(src: string): readonly EAWDef[] {
   const defs = src
     .split(/[\r\n]+/) // split lines
-    .map(line => line.replace(/^([^#]*).*$/, "$1").trim()) // strip comments
-    .filter(line => line !== "") // remove empty lines
+    .map((line) => line.replace(/^([^#]*).*$/, "$1").trim()) // strip comments
+    .filter((line) => line !== "") // remove empty lines
     .map(readDef); // parse
   // complete and merge definitions
   const completeDefs: EAWDef[] = [];

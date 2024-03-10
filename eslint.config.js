@@ -16,7 +16,7 @@ export default config({}, [
   {
     files: ["src/**/*.spec.ts", "src/**/__tests__/**/*.ts"],
     plugins: {
-      "jest": jestPlugin,
+      jest: jestPlugin,
       "jest-formatting": jestFormattingPlugin,
     },
     languageOptions: {

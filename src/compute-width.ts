@@ -27,7 +27,7 @@ const defaultWidths: Readonly<Record<EastAsianWidth, number>> = {
  */
 export function computeWidth(
   str: string,
-  widths?: Readonly<Partial<Record<EastAsianWidth, number>>>
+  widths?: Readonly<Partial<Record<EastAsianWidth, number>>>,
 ): number {
   let width = 0;
   for (const char of str) {

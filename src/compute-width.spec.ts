@@ -34,7 +34,7 @@ describe("computeWidth", () => {
       "should compute the width of a string using the specified widths / %s",
       (_title, widths, expected) => {
         expect(computeWidth("ℵAあＡｱ∀", widths)).toBe(expected);
-      }
+      },
     );
   });
 });

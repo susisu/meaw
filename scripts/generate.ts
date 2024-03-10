@@ -21,7 +21,7 @@ const BEGIN = `/* BEGIN */`;
 const END = "/* END */";
 
 function generateJs(version: string, defs: readonly EAWDef[]): string {
-  const elems = defs.map(def => `  [${def.start}, ${def.end}, "${def.prop}"],`).join("\n");
+  const elems = defs.map((def) => `  [${def.start}, ${def.end}, "${def.prop}"],`).join("\n");
   const js =
     [
       HEADER,
@@ -53,7 +53,7 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch(err => {
+main().catch((err) => {
   // eslint-disable-next-line no-console
   console.error(err);
   process.exitCode = 1;
