@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "rootDir": "src",
     "outDir": "lib",
     "target": "esnext",
@@ -7,9 +8,13 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "lib": ["esnext"],
+    "jsx": "react-jsx",
     "strict": true,
+    "noImplicitOverride": true,
     "sourceMap": true,
-    "declaration": true
+    "declaration": true,
+    "declarationMap": false,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*"
