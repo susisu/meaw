@@ -34,6 +34,7 @@
     "!src/**/__tests__"
   ],
   "scripts": {
+    "typecheck:scripts": "tsc -p tsconfig.scripts.json --noEmit",
     "fetch": "tsx --tsconfig tsconfig.scripts.json scripts/fetch.ts",
     "generate": "tsx --tsconfig tsconfig.scripts.json scripts/generate.ts",
     "generate-test": "tsx --tsconfig tsconfig.scripts.json scripts/generate.ts test",
@@ -42,13 +43,11 @@
     "format:check": "prettier --check '*.js' scripts src",
     "lint": "eslint --fix '*.js' scripts src",
     "lint:check": "eslint '*.js' scripts src",
-    "typecheck": "run-s typecheck:*",
-    "typecheck:main": "tsc -p tsconfig.json --noEmit",
-    "typecheck:scripts": "tsc -p tsconfig.scripts.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --coverage",
     "test:dev": "vitest dev --coverage.enabled --coverage.reporter=text",
     "build": "tsup",
-    "prepublishOnly": "run-s typecheck:scripts generate-test format:check lint:check typecheck:main test build"
+    "prepublishOnly": "run-s typecheck:scripts generate-test format:check lint:check typecheck test build"
   },
   "devDependencies": {
     "@susisu/eslint-config": "^0.0.79",

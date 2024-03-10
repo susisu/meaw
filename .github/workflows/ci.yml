@@ -31,6 +31,6 @@ jobs:
       - run: pnpm generate-test
       - run: pnpm format:check
       - run: pnpm lint:check
-      - run: pnpm typecheck:main
+      - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
