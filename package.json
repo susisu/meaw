@@ -50,7 +50,7 @@
     "test": "vitest run --coverage",
     "test:dev": "vitest dev --coverage.enabled --coverage.reporter=text",
     "build": "tsup",
-    "prepublishOnly": "run-s generate-test lint typecheck test build"
+    "prepublishOnly": "run-s typecheck:scripts generate-test lint typecheck:main test build"
   },
   "devDependencies": {
     "@susisu/eslint-config": "^0.0.79",
