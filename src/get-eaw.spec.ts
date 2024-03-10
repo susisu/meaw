@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { getEAW } from "./get-eaw.js";
 
 describe("getEAW", () => {
@@ -52,7 +53,7 @@ describe("getEAW", () => {
       "should return the EAW property of the character at the specified position / %d",
       (pos, expected) => {
         expect(getEAW("ℵAあＡｱ∀", pos)).toBe(expected);
-      },
+      }
     );
 
     it.each([

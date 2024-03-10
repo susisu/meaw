@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import type { EAWDef } from "./types.js";
 import { defs } from "./defs.js";
 
@@ -16,10 +17,9 @@ describe("defs", () => {
       expect(propValues).toContain(prop);
       if (prev) {
         const [, prevEnd, prevProp] = prev;
-        /* eslint-disable jest/no-conditional-expect */
+
         expect(start).toBe(prevEnd + 1);
         expect(prop).not.toBe(prevProp);
-        /* eslint-enable jest/no-conditional-expect */
       }
       prev = def;
     }

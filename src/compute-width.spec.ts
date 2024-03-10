@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { computeWidth } from "./compute-width.js";
 
 describe("computeWidth", () => {
@@ -34,7 +35,7 @@ describe("computeWidth", () => {
       "should compute the width of a string using the specified widths / %s",
       (_title, widths, expected) => {
         expect(computeWidth("ℵAあＡｱ∀", widths)).toBe(expected);
-      },
+      }
     );
   });
 });
