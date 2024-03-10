@@ -18,7 +18,7 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm fetch
+      - run: pnpm run fetch
       - run: pnpm generate
       - id: dump_eaw_version
         run: echo "EAW_VERSION=$(pnpm --silent dump-eaw-version)" >> $GITHUB_OUTPUT
