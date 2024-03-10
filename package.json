@@ -56,7 +56,6 @@
     "eslint": "^8.57.0",
     "eslint-plugin-vitest": "^0.3.24",
     "globals": "^14.0.0",
-    "node-fetch": "^3.3.2",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "tsup": "^8.0.2",

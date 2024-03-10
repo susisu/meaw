@@ -1,7 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import url from "node:url";
-import fetch from "node-fetch";
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 const SOURCE_URL = "https://www.unicode.org/Public/UCD/latest/ucd/EastAsianWidth.txt";
