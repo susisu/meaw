@@ -29,7 +29,8 @@ jobs:
       - run: pnpm install
       - run: pnpm typecheck:scripts
       - run: pnpm generate-test
-      - run: pnpm lint
+      - run: pnpm format:check
+      - run: pnpm lint:check
       - run: pnpm typecheck:main
       - run: pnpm test
       - run: pnpm build
