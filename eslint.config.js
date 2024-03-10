@@ -1,11 +1,15 @@
 import { config } from "@susisu/eslint-config";
-import jestPlugin from "eslint-plugin-jest";
-import jestFormattingPlugin from "eslint-plugin-jest-formatting";
+import vitestPlugin from "eslint-plugin-vitest";
 import globals from "globals";
 
 export default config({}, [
   {
     ignores: ["src/defs.ts"],
+  },
+  {
+    plugins: {
+      vitest: vitestPlugin,
+    },
   },
   {
     files: ["src/**/*.ts"],
@@ -15,21 +19,8 @@ export default config({}, [
   },
   {
     files: ["src/**/*.spec.ts", "src/**/__tests__/**/*.ts"],
-    plugins: {
-      jest: jestPlugin,
-      "jest-formatting": jestFormattingPlugin,
-    },
-    languageOptions: {
-      globals: jestPlugin.environments.globals.globals,
-    },
     rules: {
-      ...jestPlugin.configs.recommended.rules,
-      "jest-formatting/padding-around-after-all-blocks": "error",
-      "jest-formatting/padding-around-after-each-blocks": "error",
-      "jest-formatting/padding-around-before-all-blocks": "error",
-      "jest-formatting/padding-around-before-each-blocks": "error",
-      "jest-formatting/padding-around-describe-blocks": "error",
-      "jest-formatting/padding-around-test-blocks": "error",
+      ...vitestPlugin.configs.recommended.rules,
     },
   },
   {
