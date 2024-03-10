@@ -10,9 +10,4 @@
   "include": [
     "scripts/**/*"
   ],
-  "ts-node": {
-    "moduleTypes": {
-      "scripts/**/*": "esm"
-    }
-  }
 }
