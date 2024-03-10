@@ -16,7 +16,7 @@ const HEADER = `/*
  * The part between BEGIN and END is derived from Unicode Data Files
  * and provided under Unicode, Inc. License Agreement.
  */`;
-const IMPORT = `import { EAWDef } from "./types.js";`;
+const IMPORT = `import type { EAWDef } from "./types.js";`;
 const BEGIN = `/* BEGIN */`;
 const END = "/* END */";
 
