@@ -22,7 +22,7 @@ jobs:
       - run: pnpm generate
       - id: dump_eaw_version
         run: echo "EAW_VERSION=$(pnpm --silent dump-eaw-version)" >> $GITHUB_OUTPUT
-      - uses: peter-evans/create-pull-request@v4
+      - uses: peter-evans/create-pull-request@v6
         with:
           branch: feat/update-eaw
           commit-message: 'feat: update EastAsianWidth to ${{ steps.dump_eaw_version.outputs.EAW_VERSION }}'
