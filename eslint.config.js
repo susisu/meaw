@@ -7,11 +7,6 @@ export default config({}, [
     ignores: ["src/defs.ts"],
   },
   {
-    plugins: {
-      vitest: vitestPlugin,
-    },
-  },
-  {
     files: ["src/**/*.ts"],
     languageOptions: {
       globals: {
@@ -20,7 +15,10 @@ export default config({}, [
     },
   },
   {
-    files: ["src/**/*.spec.ts", "src/**/__tests__/**/*.ts"],
+    files: ["src/**/*.spec.ts"],
+    plugins: {
+      vitest: vitestPlugin,
+    },
     rules: {
       ...vitestPlugin.configs.recommended.rules,
     },
