@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { computeWidth } from "./compute-width.js";
+import { computeWidth } from "./compute-width";
 
 describe("computeWidth", () => {
   describe("without custom widths specified", () => {

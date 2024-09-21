@@ -1,8 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import url from "node:url";
-import type { EAWDef } from "./lib/eaw.js";
-import { readVersion, readDefs } from "./lib/eaw.js";
+import type { EAWDef } from "./lib/eaw";
+import { readVersion, readDefs } from "./lib/eaw";
 
 const DIRNAME = path.dirname(url.fileURLToPath(import.meta.url));
 const SOURCE_PATH = path.resolve(DIRNAME, "../data/EastAsianWidth.txt");
@@ -16,7 +16,7 @@ const HEADER = `/*
  * The part between BEGIN and END is derived from Unicode Data Files
  * and provided under Unicode, Inc. License Agreement.
  */`;
-const IMPORT = `import type { EAWDef } from "./types.js";`;
+const IMPORT = `import type { EAWDef } from "./types";`;
 const BEGIN = `/* BEGIN */`;
 const END = "/* END */";
 

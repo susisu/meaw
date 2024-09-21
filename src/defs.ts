@@ -5,7 +5,7 @@
  * and provided under Unicode, Inc. License Agreement.
  */
 
-import type { EAWDef } from "./types.js";
+import type { EAWDef } from "./types";
 
 /* BEGIN */
 export const defs: readonly EAWDef[] = [

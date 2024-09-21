@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import type { EAWDef } from "./types.js";
-import { defs } from "./defs.js";
+import type { EAWDef } from "./types";
+import { defs } from "./defs";
 
 describe("defs", () => {
   it("should be ordered and complete", () => {
