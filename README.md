@@ -48,7 +48,7 @@ assert(getEAW("ℵAあＡｱ∀", 2) === "W");
 
 ### `computeWidth()`
 
-**Deprecated.** To calculate the visual width of a string, it is more accurate and recommended to split the string into graphemes (using libraries like [graphemer](https://github.com/flmnt/graphemer)) and calculate the width for those graphemes.
+**Deprecated.** To calculate the visual width of a string, it is recommended to split the string into graphemes (using [`Intl.Segmenter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) or libraries like [graphemer](https://github.com/flmnt/graphemer)) and then calculate the widths of them.
 
 Computes an approximate width of a string based on the [EAW properties](http://www.unicode.org/reports/tr11/) of the characters.
 By default, characters with property Wide (W) or Fullwidth (F) are treated as wide (= 2) and others are as narrow (= 1).
