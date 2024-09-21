@@ -77,11 +77,11 @@ pnpm i
 | ----------- | ----------------------------------------------------------------- |
 | `fetch`     | fetch the latest version of the EAW definition file               |
 | `generate`  | generate source script from the EAW definition file               |
-| `typecheck` | run typechecker                                                   |
-| `lint`      | run lint tool                                                     |
-| `test`      | run tests                                                         |
-| `build`     | build script                                                      |
-| `clean`     | remove built script                                               |
+| `format`    | run Prettier                                                      |
+| `lint`      | run ESLint                                                        |
+| `typecheck` | run `tsc --noEmit`                                                |
+| `test`      | execute tests                                                     |
+| `build`     | build scripts                                                     |
 
 ## License
 
