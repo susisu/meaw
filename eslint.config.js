@@ -14,7 +14,9 @@ export default config({}, [
   {
     files: ["src/**/*.ts"],
     languageOptions: {
-      globals: globals.es2021,
+      globals: {
+        ...globals.es2021,
+      },
     },
   },
   {
@@ -26,9 +28,6 @@ export default config({}, [
   {
     files: ["scripts/**/*.ts"],
     languageOptions: {
-      parserOptions: {
-        project: "./tsconfig.scripts.json",
-      },
       globals: {
         ...globals.es2021,
         ...globals.node,

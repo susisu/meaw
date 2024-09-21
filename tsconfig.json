@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
     "noEmit": true,
-    "rootDir": "src",
-    "outDir": "lib",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -16,7 +14,5 @@
     "declarationMap": false,
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["**/*"]
 }

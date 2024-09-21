@@ -34,11 +34,10 @@
     "!src/**/__tests__"
   ],
   "scripts": {
-    "typecheck:scripts": "tsc -p tsconfig.scripts.json --noEmit",
-    "fetch": "tsx --tsconfig tsconfig.scripts.json scripts/fetch.ts",
-    "generate": "tsx --tsconfig tsconfig.scripts.json scripts/generate.ts",
-    "generate-test": "tsx --tsconfig tsconfig.scripts.json scripts/generate.ts test",
-    "dump-eaw-version": "tsx --tsconfig tsconfig.scripts.json scripts/dump-eaw-version.ts",
+    "fetch": "tsx scripts/fetch.ts",
+    "generate": "tsx scripts/generate.ts",
+    "generate-test": "tsx scripts/generate.ts test",
+    "dump-eaw-version": "tsx scripts/dump-eaw-version.ts",
     "format": "prettier --write '*.js' scripts src",
     "format:check": "prettier --check '*.js' scripts src",
     "lint": "eslint --fix '*.js' scripts src",
@@ -47,7 +46,7 @@
     "test": "vitest run --coverage",
     "test:dev": "vitest dev --coverage.enabled --coverage.reporter=text",
     "build": "tsup",
-    "prepublishOnly": "run-s typecheck:scripts generate-test format:check lint:check typecheck test build"
+    "prepublishOnly": "run-s generate-test format:check lint:check typecheck test build"
   },
   "devDependencies": {
     "@susisu/eslint-config": "^0.0.88",

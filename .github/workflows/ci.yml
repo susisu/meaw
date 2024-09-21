@@ -27,10 +27,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm typecheck:scripts
+      - run: pnpm typecheck
       - run: pnpm generate-test
       - run: pnpm format:check
       - run: pnpm lint:check
-      - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
