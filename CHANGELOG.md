@@ -1,3 +1,7 @@
+## v9.0.0 (2024-09-21)
+
+- Update to Unicode 16.0.0
+
 ## v8.0.1 (2023-09-29)
 
 - Update build tool
