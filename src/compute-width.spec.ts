@@ -20,6 +20,7 @@ describe("computeWidth", () => {
       // # string
       ["ℵAあＡｱ∀", 8],
     ])("should compute the width of a string using default widths / %s", (str, expected) => {
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
       expect(computeWidth(str)).toBe(expected);
     });
   });
@@ -34,6 +35,7 @@ describe("computeWidth", () => {
     ])(
       "should compute the width of a string using the specified widths / %s",
       (_title, widths, expected) => {
+        // eslint-disable-next-line @typescript-eslint/no-deprecated
         expect(computeWidth("ℵAあＡｱ∀", widths)).toBe(expected);
       },
     );
