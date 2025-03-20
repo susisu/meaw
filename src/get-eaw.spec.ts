@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getEAW } from "./get-eaw";
+import { getEAW, getEAWOfCodePoint } from "./get-eaw";
 
 describe("getEAW", () => {
   describe("without position specified", () => {
@@ -34,11 +34,22 @@ describe("getEAW", () => {
       ["ℵAあＡｱ∀", "N"],
     ])("should return the EAW property of the first character / %s", (str, expected) => {
       expect(getEAW(str)).toBe(expected);
+      expect(getEAWOfCodePoint(str.codePointAt(0))).toBe(expected);
     });
 
     it("should return undefined if the string is empty", () => {
       expect(getEAW("")).toBe(undefined);
     });
+
+    it.each([
+      [[-1],
+      [0x110000],
+      [NaN],
+      [1.5],
+    ])("should return undefined for non-codepoint numbers"(cp) => {
+        expect(getEAWOfCodePoint(cp)).toBe(undefined);
+      }
+    ])
   });
 
   describe("with position specified", () => {
