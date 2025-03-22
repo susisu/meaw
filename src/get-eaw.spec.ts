@@ -72,6 +72,7 @@ describe("getEAWOfCodePoint", () => {
     // ## Neutral
     ["\x00", "N"],
     ["ℵ", "N"],
+    ["\u{10FFFF}", "N"],
     // ## Narrow
     ["1", "Na"],
     ["A", "Na"],
