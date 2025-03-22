@@ -28,7 +28,7 @@ function getEAWOfCodePointInternal(codePoint: number): EastAsianWidth {
  * @param codePoint Code point
  * @return The EAW property of the code point
  * @example
- * import { getEAWOfCodePoint } from .codePointAt(0)"meaw";
+ * import { getEAWOfCodePoint } from "meaw";
  *
  * // Narrow
  * assert(getEAWOfCodePoint("A".codePointAt(0)) === "Na");
@@ -49,7 +49,7 @@ function getEAWOfCodePointInternal(codePoint: number): EastAsianWidth {
  * assert(getEAWOfCodePoint("ℵ".codePointAt(0)) === "N");
  */
 export function getEAWOfCodePoint(codePoint: number): EastAsianWidth | undefined {
-  if (!Number.isInteger(codePoint) || codePoint <= 0 || 0x10FFFF <= codePoint) return undefined;
+  if (!Number.isInteger(codePoint) || codePoint < 0 || 0x10FFFF < codePoint) return undefined;
   return getEAWOfCodePointInternal(codePoint);
 }
 

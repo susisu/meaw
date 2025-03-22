@@ -48,11 +48,10 @@ assert(getEAW("ℵAあＡｱ∀", 2) === "W");
 
 ### `getEAWOfCodePoint()`
 
-Similar to `getEAW()`, but takes the code point instead of the string of a character.
+Similar to `getEAW()`, but takes a code point (number) instead of a string.
 
 ```javascript
 import { getEAWOfCodePoint } from "meaw";
- *
 // Narrow
 assert(getEAWOfCodePoint("A".codePointAt(0)) === "Na");
 // Wide
