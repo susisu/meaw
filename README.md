@@ -52,6 +52,7 @@ Similar to `getEAW()`, but takes a code point (number) instead of a string.
 
 ```javascript
 import { getEAWOfCodePoint } from "meaw";
+
 // Narrow
 assert(getEAWOfCodePoint("A".codePointAt(0)) === "Na");
 // Wide
