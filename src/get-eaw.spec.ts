@@ -34,22 +34,11 @@ describe("getEAW", () => {
       ["ℵAあＡｱ∀", "N"],
     ])("should return the EAW property of the first character / %s", (str, expected) => {
       expect(getEAW(str)).toBe(expected);
-      expect(getEAWOfCodePoint(str.codePointAt(0))).toBe(expected);
     });
 
     it("should return undefined if the string is empty", () => {
       expect(getEAW("")).toBe(undefined);
     });
-
-    it.each([
-      [[-1],
-      [0x110000],
-      [NaN],
-      [1.5],
-    ])("should return undefined for non-codepoint numbers"(cp) => {
-        expect(getEAWOfCodePoint(cp)).toBe(undefined);
-      }
-    ])
   });
 
   describe("with position specified", () => {
@@ -75,4 +64,47 @@ describe("getEAW", () => {
       expect(getEAW(str, pos)).toBe(undefined);
     });
   });
+});
+
+describe("getEAWOfCodePoint", () => {
+  it.each([
+    // # single characters
+    // ## Neutral
+    ["\x00", "N"],
+    ["ℵ", "N"],
+    // ## Narrow
+    ["1", "Na"],
+    ["A", "Na"],
+    ["a", "Na"],
+    [".", "Na"],
+    // ## Wide
+    ["あ", "W"],
+    ["ア", "W"],
+    ["安", "W"],
+    ["。", "W"],
+    ["🍣", "W"],
+    // ## Fullwidth
+    ["１", "F"],
+    ["Ａ", "F"],
+    ["ａ", "F"],
+    // ## Halfwidth
+    ["ｱ", "H"],
+    // ## Ambiguous
+    ["∀", "A"],
+    ["→", "A"],
+    ["Ω", "A"],
+    ["Я", "A"],
+    // # string
+    ["ℵAあＡｱ∀", "N"],
+  ])("should return the EAW property of the character / %s", (str, expected) => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- character exists so never be undefined
+    expect(getEAWOfCodePoint(str.codePointAt(0)!)).toBe(expected);
+  });
+
+  it.each([[-1], [0x110000], [NaN], [1.5]])(
+    "should return undefined for non-codepoint numbers",
+    (cp) => {
+      expect(getEAWOfCodePoint(cp)).toBe(undefined);
+    },
+  );
 });

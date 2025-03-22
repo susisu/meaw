@@ -49,7 +49,7 @@ function getEAWOfCodePointInternal(codePoint: number): EastAsianWidth {
  * assert(getEAWOfCodePoint("ℵ".codePointAt(0)) === "N");
  */
 export function getEAWOfCodePoint(codePoint: number): EastAsianWidth | undefined {
-  if (!Number.isInteger(codePoint) || codePoint < 0 || 0x10FFFF < codePoint) return undefined;
+  if (!Number.isInteger(codePoint) || codePoint < 0 || 0x10ffff < codePoint) return undefined;
   return getEAWOfCodePointInternal(codePoint);
 }
 
