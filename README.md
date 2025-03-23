@@ -53,23 +53,8 @@ Similar to `getEAW()`, but takes a code point (number) instead of a string.
 ```javascript
 import { getEAWOfCodePoint } from "meaw";
 
-// Narrow
-assert(getEAWOfCodePoint("A".codePointAt(0)) === "Na");
-// Wide
-assert(getEAWOfCodePoint("あ".codePointAt(0)) === "W");
-assert(getEAWOfCodePoint("安".codePointAt(0)) === "W");
-assert(getEAWOfCodePoint("🍣".codePointAt(0)) === "W");
-// Fullwidth
-assert(getEAWOfCodePoint("Ａ".codePointAt(0)) === "F");
-// Halfwidth
-assert(getEAWOfCodePoint("ｱ".codePointAt(0)) === "H");
-// Ambiguous
-assert(getEAWOfCodePoint("∀".codePointAt(0)) === "A");
-assert(getEAWOfCodePoint("→".codePointAt(0)) === "A");
-assert(getEAWOfCodePoint("Ω".codePointAt(0)) === "A");
-assert(getEAWOfCodePoint("Я".codePointAt(0)) === "A");
-// Neutral
-assert(getEAWOfCodePoint("ℵ".codePointAt(0)) === "N");
+// 0x3042 is the code point of 'あ' (U+3042)
+assert(getEAWOfCodePoint(0x3042) === "W");
 ```
 
 ### `computeWidth()`
