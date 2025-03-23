@@ -46,6 +46,32 @@ assert(getEAW("ℵ") === "N");
 assert(getEAW("ℵAあＡｱ∀", 2) === "W");
 ```
 
+### `getEAWOfCodePoint()`
+
+Similar to `getEAW()`, but takes a code point (number) instead of a string.
+
+```javascript
+import { getEAWOfCodePoint } from "meaw";
+
+// Narrow
+assert(getEAWOfCodePoint("A".codePointAt(0)) === "Na");
+// Wide
+assert(getEAWOfCodePoint("あ".codePointAt(0)) === "W");
+assert(getEAWOfCodePoint("安".codePointAt(0)) === "W");
+assert(getEAWOfCodePoint("🍣".codePointAt(0)) === "W");
+// Fullwidth
+assert(getEAWOfCodePoint("Ａ".codePointAt(0)) === "F");
+// Halfwidth
+assert(getEAWOfCodePoint("ｱ".codePointAt(0)) === "H");
+// Ambiguous
+assert(getEAWOfCodePoint("∀".codePointAt(0)) === "A");
+assert(getEAWOfCodePoint("→".codePointAt(0)) === "A");
+assert(getEAWOfCodePoint("Ω".codePointAt(0)) === "A");
+assert(getEAWOfCodePoint("Я".codePointAt(0)) === "A");
+// Neutral
+assert(getEAWOfCodePoint("ℵ".codePointAt(0)) === "N");
+```
+
 ### `computeWidth()`
 
 **Deprecated.** To calculate the visual width of a string, it is recommended to split the string into graphemes (using [`Intl.Segmenter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) or libraries like [graphemer](https://github.com/flmnt/graphemer)) and then calculate the widths of them.

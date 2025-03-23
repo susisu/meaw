@@ -6,7 +6,7 @@ import { defs } from "./defs";
  * @param codePoint Code point
  * @return The EAW property of the code point
  */
-function getEAWOfCodePoint(codePoint: number): EastAsianWidth {
+function getEAWOfCodePointInternal(codePoint: number): EastAsianWidth {
   let min = 0;
   let max = defs.length - 1;
   while (min !== max) {
@@ -21,6 +21,36 @@ function getEAWOfCodePoint(codePoint: number): EastAsianWidth {
     }
   }
   return defs[min][2];
+}
+
+/**
+ * Gets the EAW property of a code point.
+ * @param codePoint Code point
+ * @return The EAW property of the code point
+ * @example
+ * import { getEAWOfCodePoint } from "meaw";
+ *
+ * // Narrow
+ * assert(getEAWOfCodePoint("A".codePointAt(0)) === "Na");
+ * // Wide
+ * assert(getEAWOfCodePoint("あ".codePointAt(0)) === "W");
+ * assert(getEAWOfCodePoint("安".codePointAt(0)) === "W");
+ * assert(getEAWOfCodePoint("🍣".codePointAt(0)) === "W");
+ * // Fullwidth
+ * assert(getEAWOfCodePoint("Ａ".codePointAt(0)) === "F");
+ * // Halfwidth
+ * assert(getEAWOfCodePoint("ｱ".codePointAt(0)) === "H");
+ * // Ambiguous
+ * assert(getEAWOfCodePoint("∀".codePointAt(0)) === "A");
+ * assert(getEAWOfCodePoint("→".codePointAt(0)) === "A");
+ * assert(getEAWOfCodePoint("Ω".codePointAt(0)) === "A");
+ * assert(getEAWOfCodePoint("Я".codePointAt(0)) === "A");
+ * // Neutral
+ * assert(getEAWOfCodePoint("ℵ".codePointAt(0)) === "N");
+ */
+export function getEAWOfCodePoint(codePoint: number): EastAsianWidth | undefined {
+  if (!Number.isInteger(codePoint) || codePoint < 0 || 0x10ffff < codePoint) return undefined;
+  return getEAWOfCodePointInternal(codePoint);
 }
 
 /**
@@ -57,5 +87,5 @@ export function getEAW(str: string, pos: number = 0): EastAsianWidth | undefined
   if (codePoint === undefined) {
     return undefined;
   }
-  return getEAWOfCodePoint(codePoint);
+  return getEAWOfCodePointInternal(codePoint);
 }
