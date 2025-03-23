@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getEAW, getEAWOfCodePoint } from "./";
+import { getEAW, getEAWOfCodePoint } from "./get-eaw";
 
 describe("getEAW", () => {
   describe("without position specified", () => {
