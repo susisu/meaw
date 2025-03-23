@@ -1,5 +1,5 @@
 export function readVersion(src: string): string {
-  const res = /^# EastAsianWidth-(.+).txt/.exec(src);
+  const res = /^# EastAsianWidth-(.+).txt/u.exec(src);
   if (!res) {
     throw new Error("failed to get version");
   }
@@ -24,11 +24,11 @@ export type EAWDef = Readonly<{
 }>;
 
 function readDef(line: string): EAWDef {
-  const [range, prop] = line.split(/\s*;\s*/, 2);
+  const [range, prop] = line.split(/\s*;\s*/u, 2);
   if (!isEastAsianWidth(prop)) {
     throw new Error(`unknown prop: ${prop}`);
   }
-  const [startStr, endStr] = range.split(/\s*\.\.\s*/, 2);
+  const [startStr, endStr] = range.split(/\s*\.\.\s*/u, 2);
   const start = parseInt(startStr, 16);
   const end = parseInt(endStr || startStr, 16);
   if (Number.isNaN(start) || Number.isNaN(end)) {
@@ -39,8 +39,8 @@ function readDef(line: string): EAWDef {
 
 export function readDefs(src: string): readonly EAWDef[] {
   const defs = src
-    .split(/[\r\n]+/) // split lines
-    .map((line) => line.replace(/^([^#]*).*$/, "$1").trim()) // strip comments
+    .split(/[\r\n]+/u) // split lines
+    .map((line) => line.replace(/^([^#]*).*$/u, "$1").trim()) // strip comments
     .filter((line) => line !== "") // remove empty lines
     .map(readDef); // parse
   // complete and merge definitions
