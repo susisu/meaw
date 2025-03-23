@@ -1,3 +1,7 @@
+## v9.1.0 (2025-03-23)
+
+- Export `getEAWOfCodePoint()` ([#15](https://github.com/susisu/meaw/pull/15))
+
 ## v9.0.0 (2024-09-21)
 
 - Update to Unicode 16.0.0
