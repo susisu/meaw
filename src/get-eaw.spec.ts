@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, assert } from "vitest";
 import { getEAW, getEAWOfCodePoint } from "./get-eaw";
 
 describe("getEAW", () => {
@@ -8,6 +8,7 @@ describe("getEAW", () => {
       // ## Neutral
       ["\x00", "N"],
       ["ℵ", "N"],
+      ["\u{10FFFF}", "N"],
       // ## Narrow
       ["1", "Na"],
       ["A", "Na"],
@@ -68,7 +69,6 @@ describe("getEAW", () => {
 
 describe("getEAWOfCodePoint", () => {
   it.each([
-    // # single characters
     // ## Neutral
     ["\x00", "N"],
     ["ℵ", "N"],
@@ -95,15 +95,14 @@ describe("getEAWOfCodePoint", () => {
     ["→", "A"],
     ["Ω", "A"],
     ["Я", "A"],
-    // # string
-    ["ℵAあＡｱ∀", "N"],
-  ])("should return the EAW property of the character / %s", (str, expected) => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- character exists so never be undefined
-    expect(getEAWOfCodePoint(str.codePointAt(0)!)).toBe(expected);
+  ])("should return the EAW property of the code point / %s", (str, expected) => {
+    const cp = str.codePointAt(0);
+    assert(cp !== undefined);
+    expect(getEAWOfCodePoint(cp)).toBe(expected);
   });
 
-  it.each([[-1], [0x110000], [NaN], [1.5]])(
-    "should return undefined for non-codepoint numbers",
+  it.each([-1, 0x110000, NaN, Infinity, 1.5])(
+    "should return undefined for non-codepoint numbers / %d",
     (cp) => {
       expect(getEAWOfCodePoint(cp)).toBe(undefined);
     },
