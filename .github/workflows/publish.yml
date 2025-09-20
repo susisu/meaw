@@ -29,9 +29,9 @@ jobs:
       - name: publish
         run: |
           if [ "$DRY_RUN" ]; then
-            pnpm publish --dry-run
+            pnpm publish --no-git-checks --dry-run
           else
-            pnpm publish
+            pnpm publish --no-git-checks
           fi
         env:
           DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry-run) && '1' || '' }}
