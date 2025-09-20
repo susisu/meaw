@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: '22'
           cache: 'pnpm'
+      - name: update npm
+        run: npm install -g npm@latest
       - run: pnpm install
       - name: publish
         run: |
