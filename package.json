@@ -12,6 +12,7 @@
   "author": "Susisu <susisu2413@yahoo.co.jp>",
   "license": "MIT",
   "type": "module",
+  "sideEffects": false,
   "main": "lib/index.cjs",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
