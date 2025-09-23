@@ -15,8 +15,8 @@ jobs:
           version: 10
       - uses: actions/setup-node@v5
         with:
-          node-version: '22'
-          cache: 'pnpm'
+          node-version: 22
+          cache: pnpm
       - run: pnpm install
       - run: pnpm run fetch
       - run: pnpm generate
