@@ -50,18 +50,18 @@
     "prepublishOnly": "run-s generate-test format:check lint:check typecheck test build"
   },
   "devDependencies": {
-    "@susisu/eslint-config": "^0.0.100",
-    "@types/node": "^24.9.2",
-    "@vitest/coverage-v8": "^4.0.6",
-    "@vitest/eslint-plugin": "^1.4.0",
-    "eslint": "^9.39.0",
-    "globals": "^16.5.0",
-    "npm-run-all2": "^8.0.4",
-    "p-retry": "^7.1.0",
-    "prettier": "^3.6.2",
-    "tsup": "^8.5.0",
-    "tsx": "^4.20.6",
+    "@susisu/eslint-config": "^0.0.102",
+    "@types/node": "^26.6.1",
+    "@vitest/coverage-v8": "^5.0.1",
+    "@vitest/eslint-plugin": "^1.6.27",
+    "eslint": "^10.10.0",
+    "globals": "^17.12.0",
+    "npm-run-all2": "^9.0.3",
+    "p-retry": "^8.0.1",
+    "prettier": "^3.9.8",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.13",
     "typescript": "~5.9.3",
-    "vitest": "^4.0.6"
+    "vitest": "^5.0.1"
   }
 }
