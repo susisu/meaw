@@ -1,3 +1,7 @@
+## v11.0.0 (2026-09-19)
+
+- Update to Unicode 18.0.0
+
 ## v10.0.0 (2025-09-20)
 
 - Update to Unicode 17.0.0
